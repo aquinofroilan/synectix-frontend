@@ -1,1 +1,13 @@
-<input type="text" pInputText [(ngModel)]="_value" [autocomplete]="_autocomplete" [placeholder]="_placeholder" [type]="_type" [disabled]="_disabled" />
+<div class="flex flex-col gap-2">
+    <label [htmlFor]="_name">{{ _label }}</label>
+    <input
+        type="text"
+        pInputText
+        [(ngModel)]="_value"
+        [autocomplete]="_autocomplete"
+        [placeholder]="_placeholder"
+        [type]="_type"
+        [disabled]="_disabled"
+    />
+    <small>{{ _helperText }}</small>
+</div>
