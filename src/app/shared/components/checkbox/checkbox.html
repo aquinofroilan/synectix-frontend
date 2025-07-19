@@ -1,1 +1,13 @@
-<p>checkbox works!</p>
+<div class="flex items-center">
+    <p-checkbox
+        [required]="_required"
+        [inputId]="_id"
+        [name]="_name"
+        [(ngModel)]="_checkbox"
+        [disabled]="_disabled"
+        [size]="_size"
+        [invalid]="_invalid"
+        [variant]="_variant"
+    />
+    <label [for]="_id" class="ml-2"> {{ _label }} </label>
+</div>
