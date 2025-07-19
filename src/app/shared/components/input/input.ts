@@ -2,9 +2,11 @@ import { Component } from "@angular/core";
 import { InputTextModule } from "primeng/inputtext";
 import { FormsModule } from "@angular/forms";
 import { PasswordModule } from "primeng/password";
+import { Textarea } from "primeng/textarea";
+
 @Component({
     selector: "app-input",
-    imports: [InputTextModule, FormsModule, PasswordModule],
+    imports: [InputTextModule, FormsModule, PasswordModule, Textarea],
     templateUrl: "./input.html",
     styleUrl: "./input.css",
 })

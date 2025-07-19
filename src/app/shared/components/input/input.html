@@ -11,5 +11,6 @@
         [disabled]="_disabled"
     />
     <p-password [(ngModel)]="_value" [disabled]="_disabled" *ngIf="expressions._type === 'password'" [toggleMask]="true" />
+    <textarea rows="5" cols="30" pTextarea [(ngModel)]="_value" *ngIf="expressions._type === 'textarea'"></textarea>
     <small>{{ _helperText }}</small>
 </div>
