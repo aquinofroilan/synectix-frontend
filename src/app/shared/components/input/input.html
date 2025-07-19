@@ -1,6 +1,7 @@
 <div class="flex flex-col gap-2">
     <label [htmlFor]="_name">{{ _label }}</label>
     <input
+        *ngIf="expressions._type !== 'password'"
         type="text"
         pInputText
         [(ngModel)]="_value"
@@ -9,5 +10,6 @@
         [type]="_type"
         [disabled]="_disabled"
     />
+    <p-password [(ngModel)]="_value" [disabled]="_disabled" *ngIf="expressions._type === 'password'" [toggleMask]="true" />
     <small>{{ _helperText }}</small>
 </div>
