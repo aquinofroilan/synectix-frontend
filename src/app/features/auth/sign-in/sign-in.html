@@ -1,22 +1,38 @@
-<main>
-    <app-card header="Sign In" subheader="Please enter your credentials to continue">
-        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-            <div>
-                <label for="email">Email</label>
-                <input id="email" formControlName="email" />
-                <div *ngIf="signInForm.get('email')?.invalid && signInForm.get('email')?.touched">
-                    <small *ngIf="signInForm.get('email')?.errors?.['required']">Email is required.</small>
-                    <small *ngIf="signInForm.get('email')?.errors?.['email']">Invalid email format.</small>
-                </div>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input id="password" type="password" formControlName="password" />
-                <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched">
-                    <small *ngIf="signInForm.get('password')?.errors?.['required']">Password is required.</small>
-                </div>
-            </div>
-            <button type="submit" [disabled]="signInForm.invalid">Sign In</button>
+<main class="">
+    <app-card
+        header="Sign In"
+        subheader="Please enter your credentials to continue"
+    >
+        <form
+            [formGroup]="signInForm"
+            class="flex flex-col"
+            (ngSubmit)="onSubmit()"
+        >
+            <app-input
+                autocomplete="email"
+                id="email"
+                formControlName="email"
+                label="Email"
+                [withHelperText]="true"
+                customClass="w-full flex flex-col gap-2"
+                placeholder="someone@example.com"
+                helperText="Enter your email address"
+            />
+            <app-input
+                autocomplete="current-password"
+                id="password"
+                formControlName="password"
+                type="password"
+                label="Password"
+                [feedback]="false"
+                placeholder="*********"
+                [withHelperText]="true"
+                customClass="w-full flex flex-col gap-2"
+                helperText="Enter your password"
+            />
+            <button type="submit" [disabled]="signInForm.invalid">
+                Sign In
+            </button>
         </form>
     </app-card>
 </main>

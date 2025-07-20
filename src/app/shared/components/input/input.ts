@@ -4,10 +4,11 @@ import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { PasswordModule } from "primeng/password";
 import { Textarea } from "primeng/textarea";
 import { BaseFormField } from "@shared/base/form-field/base-form-field";
+import { CommonModule } from "@angular/common";
 
 @Component({
     selector: "app-input",
-    imports: [InputTextModule, FormsModule, PasswordModule, Textarea],
+    imports: [InputTextModule, FormsModule, PasswordModule, Textarea, CommonModule],
     templateUrl: "./input.html",
     styleUrl: "./input.css",
     providers: [

@@ -2,9 +2,10 @@ import { CommonModule } from "@angular/common";
 import { Component, type OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
 import { Card } from "@shared/components/card/card";
+import { Input } from '@shared/components/input/input'
 @Component({
     selector: "app-sign-in",
-    imports: [ReactiveFormsModule, Card, CommonModule],
+    imports: [ReactiveFormsModule, Card, CommonModule, Input],
     templateUrl: "./sign-in.html",
     styleUrl: "./sign-in.css",
 })
