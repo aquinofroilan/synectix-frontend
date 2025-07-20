@@ -9,8 +9,35 @@ import { CommonModule } from "@angular/common";
 @Component({
     selector: "app-input",
     imports: [InputTextModule, FormsModule, PasswordModule, Textarea, CommonModule],
-    templateUrl: "./input.html",
-    styleUrl: "./input.css",
+    template: `
+        <section [class]="customClass">
+            <label [htmlFor]="inputId">{{ label }}</label>
+            <input
+                [disabled]="_disabled"
+                *ngIf="type !== 'password'"
+                [type]="type"
+                pInputText
+                [autocomplete]="autocomplete"
+                [placeholder]="placeholder"
+                [size]="size"
+                (input)="onInputChange($event)"
+            />
+            <p-password
+                [disabled]="_disabled"
+                *ngIf="type === 'password'"
+                [toggleMask]="toggleMask"
+                [feedback]="feedback"
+                [size]="size"
+                [placeholder]="placeholder"
+                [autocomplete]="autocomplete"
+                [inputId]="inputId"
+                id="{{ inputId }}"
+                (input)="onInputChange($event)"
+            />
+            <textarea rows="5" cols="30" pTextarea *ngIf="type === 'textarea'"></textarea>
+            <small>{{ helperText }}</small>
+        </section>
+    `,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

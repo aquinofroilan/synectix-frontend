@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 @Component({
     selector: "app-root",
     imports: [RouterModule],
-    template: `<main class="w-full">
+    template: `<main class="w-full min-h-scren">
         <router-outlet></router-outlet>
     </main>`,
 })

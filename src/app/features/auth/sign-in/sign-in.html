@@ -1,12 +1,11 @@
-<main class="flex">
+<main ngClass="flex items-center justify-center h-full p-4 min-h-screen">
     <app-card
         header="Sign In"
         subheader="Please enter your credentials to continue"
-        contentClass="flex flex-col gap-4"
     >
         <form
             [formGroup]="signInForm"
-            class="flex flex-col"
+            class="flex flex-col gap-3"
             (ngSubmit)="onSubmit()"
         >
             <app-input
@@ -15,23 +14,24 @@
                 formControlName="email"
                 label="Email"
                 [withHelperText]="true"
-                customClass="w-full flex flex-col gap-2"
+                customClass="w-full flex flex-col gap-1"
                 placeholder="someone@example.com"
                 helperText="Enter your email address"
             />
             <app-input
                 autocomplete="current-password"
                 id="password"
+                name="password"
                 formControlName="password"
                 type="password"
                 label="Password"
                 [feedback]="false"
                 placeholder="*********"
                 [withHelperText]="true"
-                customClass="w-full flex flex-col gap-2"
+                customClass="w-full flex flex-col gap-1"
                 helperText="Enter your password"
             />
-            <app-button label="Sign In" type="submit" [disabled]="signInForm.invalid"  />
+            <app-button label="Sign In" type="submit" [disabled]="signInForm.invalid" />
         </form>
     </app-card>
 </main>
