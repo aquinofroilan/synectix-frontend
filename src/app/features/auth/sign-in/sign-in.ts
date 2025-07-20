@@ -4,11 +4,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } 
 import { Card } from "@shared/components/card/card";
 import { Input } from "@shared/components/input/input";
 import { Button } from "@shared/components/button/button";
+import { Link } from "@shared/components/link/link";
 @Component({
     selector: "app-sign-in",
-    imports: [ReactiveFormsModule, Card, CommonModule, Input, Button],
+    imports: [ReactiveFormsModule, Card, CommonModule, Input, Button, Link],
     templateUrl: "./sign-in.html",
-    styleUrl: "./sign-in.css",
 })
 export class SignIn implements OnInit {
     signInForm!: FormGroup;
