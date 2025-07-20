@@ -22,7 +22,7 @@ export class Signup implements OnInit {
             lastName: new FormControl("", [Validators.required]),
             email: new FormControl("", [Validators.required, Validators.email]),
             username: new FormControl("", [Validators.required, Validators.minLength(3)]),
-            phoneNumber: new FormControl("", [Validators.required, Validators.pattern("^[0-9]{10}$")]),
+            phoneNumber: new FormControl("", [Validators.required]),
             companyName: new FormControl("", [Validators.required]),
             country: new FormControl("", [Validators.required]),
             ogranizationType: new FormControl("", [Validators.required]),
@@ -33,8 +33,7 @@ export class Signup implements OnInit {
 
     onSubmit(): void {
         if (this.signupForm.valid) {
-            const { email, password } = this.signupForm.value;
-            console.log("Sign Up Data:", { email, password, ...this.signupForm.value });
+            console.log("Sign Up Data:", { ...this.signupForm.value });
             // Here you would typically handle the sign-up logic, e.g., call an authentication service
         } else {
             console.error("Form is invalid");
