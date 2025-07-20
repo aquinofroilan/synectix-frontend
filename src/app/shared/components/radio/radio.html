@@ -1,9 +1,8 @@
 <div class="flex items-center">
     <p-radiobutton
-        [name]="_name"
+        [name]="name"
         value="Cheese"
-        [(ngModel)]="_radio"
-        [inputId]="_id"
+        [inputId]="inputId"
     />
-    <label [for]="_id" class="ml-2">{{ _label }}</label>
+    <label [for]="inputId" class="ml-2">{{ label }}</label>
 </div>

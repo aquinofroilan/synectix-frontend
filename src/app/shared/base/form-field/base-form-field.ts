@@ -63,7 +63,7 @@ export abstract class BaseFormField<T> implements ControlValueAccessor {
 
     @Input() placeholder!: string;
     @Input() required: boolean = false;
-    @Input() size!: "small" | "" | "large";
+    @Input() size: "small" | "large" = "small";
     @Input() autocomplete!: "on" | "off";
     @Input() type!: "text" | "password";
     @Input() name!: string;
@@ -72,6 +72,6 @@ export abstract class BaseFormField<T> implements ControlValueAccessor {
     @Input() withHelperText!: boolean;
     @Input() helperText!: string;
     @Input() customClass: string = "";
-    @Input() variant: "filled" | "outlined" | "ghost" = "filled";
+    @Input() variant: "filled" | "outlined" = "filled";
     @Input() inputId: string = Math.random().toString(36).substring(2);
 }
