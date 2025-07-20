@@ -1,5 +1,6 @@
 import { Component, forwardRef } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { RadioButtonModule } from "primeng/radiobutton";
 @Component({
     selector: "app-radio",
@@ -14,14 +15,9 @@ import { RadioButtonModule } from "primeng/radiobutton";
         },
     ],
 })
-export class Radio {
-    _radio: boolean = false;
-    _label: string = "Radio";
-    _disabled: boolean = false;
-    _required: boolean = false;
-    _variant: "filled" | "outlined" = "filled";
-    _size: "small" | "large" = "small";
-    _invalid: boolean = false;
-    _name: string = "radio";
-    _id: string = Math.random().toString(36).substring(2);
+export class Radio extends BaseFormField<boolean> {
+    onRadioChange(event: Event): void {
+        const value = (event.target as HTMLInputElement).checked;
+        this.emitValue(value);
+    }
 }
