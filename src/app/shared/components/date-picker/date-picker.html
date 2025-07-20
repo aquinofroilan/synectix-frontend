@@ -1,1 +1,13 @@
-<p>date-picker works!</p>
+<p-datepicker
+    [class]="customClass"
+    [minDate]="min"
+    [maxDate]="max"
+    [selectionMode]="selectionMode"
+    [showButtonBar]="showButtonBar"
+    [hourFormat]="timeFormat"
+    [view]="view"
+    [numberOfMonths]="numberOfMonths"
+    [(ngModel)]="date"
+    [inline]="inline"
+    [showWeek]="showWeek"
+/>
