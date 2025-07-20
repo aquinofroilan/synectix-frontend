@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { Component, forwardRef } from "@angular/core";
+import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { SelectModule } from "primeng/select";
 
 @Component({
@@ -7,18 +8,18 @@ import { SelectModule } from "primeng/select";
     imports: [SelectModule, FormsModule],
     templateUrl: "./select.html",
     styleUrl: "./select.css",
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => Select),
+            multi: true,
+        },
+    ],
 })
-export class Select {
-    _loading: boolean = false;
+export class Select extends BaseFormField<string> {
     _options: string[] = [];
     _selectedOption: string = "";
-    _placeholder: string = "Select an option";
     _editable: boolean = true;
-    _label: string = "Select";
     _showClear: boolean = true;
-    _disabled: boolean = false;
-    _required: boolean = false;
-    _variant: "filled" | "outlined" = "filled";
-    _size: "small" | "large" = "small";
     _invalid: boolean = false;
 }
