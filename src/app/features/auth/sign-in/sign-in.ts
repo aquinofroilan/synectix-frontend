@@ -1,8 +1,10 @@
+import { CommonModule } from "@angular/common";
 import { Component, type OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
+import { Card } from "@shared/components/card/card";
 @Component({
     selector: "app-sign-in",
-    imports: [ReactiveFormsModule],
+    imports: [ReactiveFormsModule, Card, CommonModule],
     templateUrl: "./sign-in.html",
     styleUrl: "./sign-in.css",
 })
@@ -15,5 +17,9 @@ export class SignIn implements OnInit {
             email: new FormControl("", [Validators.required, Validators.email]),
             password: new FormControl("", [Validators.required]),
         });
+    }
+
+    onSubmit(): void {
+        throw new Error("Method not implemented.");
     }
 }
