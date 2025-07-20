@@ -1,0 +1,16 @@
+<div class="flex flex-col gap-2">
+    <label [htmlFor]="name">{{ label }}</label>
+    <input
+        *ngIf="expressions._type !== 'password'"
+        type="text"
+        pInputText
+        [(ngModel)]="_value"
+        [autocomplete]="autocomplete"
+        [placeholder]="placeholder"
+        [type]="type"
+        [disabled]="_disabled"
+    />
+    <p-password [(ngModel)]="_value" [disabled]="_disabled" *ngIf="expressions._type === 'password'" [toggleMask]="true" />
+    <textarea rows="5" cols="30" pTextarea [(ngModel)]="_value" *ngIf="expressions._type === 'textarea'"></textarea>
+    <small>{{ helperText }}</small>
+</div>
