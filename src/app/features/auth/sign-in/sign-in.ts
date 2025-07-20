@@ -3,9 +3,10 @@ import { Component, type OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
 import { Card } from "@shared/components/card/card";
 import { Input } from '@shared/components/input/input'
+import { Button } from "@shared/components/button/button";
 @Component({
     selector: "app-sign-in",
-    imports: [ReactiveFormsModule, Card, CommonModule, Input],
+    imports: [ReactiveFormsModule, Card, CommonModule, Input, Button],
     templateUrl: "./sign-in.html",
     styleUrl: "./sign-in.css",
 })

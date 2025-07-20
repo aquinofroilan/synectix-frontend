@@ -30,9 +30,7 @@
                 customClass="w-full flex flex-col gap-2"
                 helperText="Enter your password"
             />
-            <button type="submit" [disabled]="signInForm.invalid">
-                Sign In
-            </button>
+            <app-button label="Sign In" type="submit" [disabled]="signInForm.invalid"  />
         </form>
     </app-card>
 </main>
