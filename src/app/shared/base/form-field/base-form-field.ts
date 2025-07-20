@@ -1,4 +1,4 @@
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { ControlValueAccessor } from "@angular/forms";
 import { Directive, Input } from "@angular/core";
 
 @Directive()
