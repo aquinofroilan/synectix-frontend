@@ -1,6 +1,4 @@
 import { Routes } from "@angular/router";
-import { SignIn } from "@features/auth/signin/signin";
-import { Signup } from "@features/auth/signup/signup";
 export const routes: Routes = [
     {
         path: "flow",
@@ -10,11 +8,11 @@ export const routes: Routes = [
                 children: [
                     {
                         path: "signin",
-                        component: SignIn,
+                        loadComponent: () => import("@features/auth/signin/signin").then((m) => m.SignIn),
                     },
                     {
                         path: "signup",
-                        component: Signup,
+                        loadComponent: () => import("@features/auth/signup/signup").then((m) => m.Signup),
                     },
                 ],
             },

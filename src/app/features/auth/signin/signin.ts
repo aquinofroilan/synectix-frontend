@@ -8,7 +8,7 @@ import { Link } from "@shared/components/link/link";
 @Component({
     selector: "app-sign-in",
     imports: [ReactiveFormsModule, Card, CommonModule, Input, Button, Link],
-    templateUrl: "./sign-in.html",
+    templateUrl: "./signin.html",
 })
 export class SignIn implements OnInit {
     signInForm!: FormGroup;
