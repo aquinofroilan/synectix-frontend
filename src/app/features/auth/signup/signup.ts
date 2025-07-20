@@ -1,18 +1,18 @@
 import { Component, type OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
-import { Card } from "@shared/components/card/card";
-import { Input } from "@shared/components/input/input";
-import { Button } from "@shared/components/button/button";
-import { Link } from "@shared/components/link/link";
+import { Card, Input, Button, Link, Select } from "@shared/components";
 import { CommonModule } from "@angular/common";
+import { COUNTRIES, ORGANIZATION_TYPES } from "@shared/constants";
 
 @Component({
     selector: "app-signup",
-    imports: [ReactiveFormsModule, Card, CommonModule, Input, Button, Link],
+    imports: [ReactiveFormsModule, Card, CommonModule, Input, Button, Link, Select],
     templateUrl: "./signup.html",
 })
 export class Signup implements OnInit {
     signupForm!: FormGroup;
+    countries = COUNTRIES.map((country) => ({ label: country.name, value: country.code }));
+    organizations = ORGANIZATION_TYPES.map((org) => ({ label: org.label, value: org.value }));
 
     constructor(private signupFormBuilder: FormBuilder) {}
 
@@ -25,7 +25,7 @@ export class Signup implements OnInit {
             phoneNumber: new FormControl("", [Validators.required, Validators.pattern("^[0-9]{10}$")]),
             companyName: new FormControl("", [Validators.required]),
             country: new FormControl("", [Validators.required]),
-            businessType: new FormControl("", [Validators.required]),
+            ogranizationType: new FormControl("", [Validators.required]),
             password: new FormControl("", [Validators.required]),
             confirmPassword: new FormControl("", [Validators.required]),
         });

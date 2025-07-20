@@ -1,4 +1,4 @@
-import { Component, forwardRef } from "@angular/core";
+import { Component, forwardRef, Input } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { SelectModule } from "primeng/select";
@@ -6,8 +6,21 @@ import { SelectModule } from "primeng/select";
 @Component({
     selector: "app-select",
     imports: [SelectModule, FormsModule],
-    templateUrl: "./select.html",
-    styleUrl: "./select.css",
+    template: `
+        <p-select
+            [options]="options"
+            [(ngModel)]="selectedOption"
+            [placeholder]="placeholder"
+            [editable]="editable"
+            [optionLabel]="label"
+            [showClear]="showClear"
+            [disabled]="_disabled"
+            [required]="required"
+            [variant]="variant"
+            [size]="size"
+            [class]="customClass"
+        />
+    `,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -17,9 +30,9 @@ import { SelectModule } from "primeng/select";
     ],
 })
 export class Select extends BaseFormField<string> {
-    _options: string[] = [];
-    _selectedOption: string = "";
-    _editable: boolean = true;
-    _showClear: boolean = true;
-    _invalid: boolean = false;
+    @Input() options: { label: string; value: string }[] = [];
+    @Input() selectedOption: string = "";
+    @Input() editable: boolean = true;
+    @Input() showClear: boolean = true;
+    @Input() invalid: boolean = false;
 }
