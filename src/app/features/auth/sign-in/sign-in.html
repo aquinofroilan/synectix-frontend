@@ -1,0 +1,57 @@
+<main ngClass="flex items-center justify-center h-full p-4 min-h-screen">
+    <app-card
+        header="Sign In"
+        subheader="Please enter your credentials to continue"
+        customStyles="w-full max-w-lg flex flex-col gap-4"
+    >
+        <form
+            [formGroup]="signInForm"
+            class="flex flex-col gap-3"
+            (ngSubmit)="onSubmit()"
+        >
+            <app-input
+                autocomplete="email"
+                id="email"
+                formControlName="email"
+                label="Email"
+                [withHelperText]="true"
+                [size]="'small'"
+                customClass="w-full flex flex-col gap-1"
+                placeholder="someone@example.com"
+                helperText="Enter your email address"
+            />
+            <app-input
+                autocomplete="current-password"
+                id="password"
+                name="password"
+                formControlName="password"
+                type="password"
+                label="Password"
+                [feedback]="false"
+                [size]="'small'"
+                placeholder="*********"
+                [withHelperText]="true"
+                customClass="w-full flex flex-col gap-1"
+                helperText="Enter your password"
+            />
+            <app-button
+                label="Sign In"
+                type="submit"
+                [disabled]="signInForm.invalid"
+                customClass="w-full"
+            />
+        </form>
+        <section class="flex flex-row justify-between items-center mt-2">
+            <app-link
+                link="/flow/auth/signup"
+                class="mt-4"
+                [label]="'Don\'t have an account'"
+            />
+            <app-link
+                link="/flow/auth/forgot-password"
+                class="mt-2"
+                [label]="'Forgot Password?'"
+            />
+        </section>
+    </app-card>
+</main>
