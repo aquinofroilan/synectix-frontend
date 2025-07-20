@@ -22,6 +22,12 @@ export class SignIn implements OnInit {
     }
 
     onSubmit(): void {
-        throw new Error("Method not implemented.");
+        if (this.signInForm.valid) {
+            const { email, password } = this.signInForm.value;
+            console.log("Sign In Data:", { email, password });
+            // Here you would typically handle the sign-in logic, e.g., call an authentication service
+        } else {
+            console.error("Form is invalid");
+        }
     }
 }
