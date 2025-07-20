@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
-import { SignIn } from "@features/auth/sign-in/sign-in";
+import { SignIn } from "@features/auth/signin/signin";
+import { Signup } from "@features/auth/signup/signup";
 export const routes: Routes = [
     {
         path: "flow",
@@ -10,6 +11,10 @@ export const routes: Routes = [
                     {
                         path: "signin",
                         component: SignIn,
+                    },
+                    {
+                        path: "signup",
+                        component: Signup,
                     },
                 ],
             },
