@@ -1,4 +1,3 @@
 <p-card [header]="header" [subheader]="subheader" [styleClass]="customStyles">
-    <ng-content>
-    </ng-content>
+    <ng-content class="flex flex-col" [ngClass]="contentClass"></ng-content>
 </p-card>

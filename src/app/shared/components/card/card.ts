@@ -11,4 +11,5 @@ export class Card {
     @Input() header!: string;
     @Input() subheader!: string;
     @Input() customStyles: string = "";
+    @Input() contentClass: string = "";
 }
