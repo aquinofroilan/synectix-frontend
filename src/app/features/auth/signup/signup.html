@@ -1,77 +1,104 @@
 <main>
     <app-card header="Sign Up" subheader="Create an account to get started">
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-            <app-input
-                formControlName="firstName"
-                label="First Name"
-                placeholder="Enter your first name"
-                [required]="true"
-            />
-            <app-input
-                formControlName="lastName"
-                label="Last Name"
-                placeholder="Enter your last name"
-                [required]="true"
-            />
-            <app-input
-                formControlName="email"
-                label="Email"
-                placeholder="Enter your email"
-                type="email"
-                [required]="true"
-            />
-            <app-input
-                formControlName="username"
-                label="Username"
-                placeholder="Enter your username"
-                [required]="true"
-            />
-            <app-input
-                formControlName="phoneNumber"
-                label="Phone Number"
-                placeholder="Enter your phone number"
-                type="tel"
-                [required]="true"
-            />
-            <app-input
-                formControlName="companyName"
-                label="Company Name"
-                placeholder="Enter your company name"
-                [required]="true"
-            />
-            <app-select
-                formControlName="country"
-                [options]="countries"
-                [placeholder]="'Select your country'"
-                [required]="true"
-            />
-            <app-select
-                formControlName="organizationType"
-                label="Organization Type"
-                [options]="organizations"
-                [placeholder]="'Select your organization type'"
-                [required]="true"
-            />
-            <app-button
-                label="Sign Up"
-                type="submit"
-                [disabled]="signupForm.invalid"
-                customClass="w-full"
-            />
-            <app-input
-                formControlName="password"
-                label="Password"
-                type="password"
-                placeholder="Enter your password"
-                [required]="true"
-            />
-            <app-input
-                formControlName="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                placeholder="Re-enter your password"
-                [required]="true"
-            />
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <app-input
+                    formControlName="firstName"
+                    label="First Name"
+                    placeholder="Enter your first name"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter your first name."
+                />
+                <app-input
+                    formControlName="lastName"
+                    label="Last Name"
+                    placeholder="Enter your last name"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter your last name."
+                />
+                <app-input
+                    formControlName="email"
+                    label="Email"
+                    placeholder="Enter your email"
+                    type="email"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter a valid email address."
+                />
+                <app-input
+                    formControlName="username"
+                    label="Username"
+                    placeholder="Enter your username"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter a unique username."
+                />
+                <app-input
+                    formControlName="phoneNumber"
+                    label="Phone Number"
+                    placeholder="Enter your phone number"
+                    type="tel"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter a valid phone number."
+                />
+                <app-input
+                    formControlName="companyName"
+                    label="Company Name"
+                    placeholder="Enter your company name"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter the name of your company."
+                />
+                <app-select
+                    formControlName="country"
+                    [options]="countries"
+                    [placeholder]="'Select your country'"
+                    [required]="true"
+                    label="Country"
+                    [withHelperText]="true"
+                    helperText="Please select your country."
+                />
+                <app-select
+                    formControlName="organizationType"
+                    label="Organization Type"
+                    [options]="organizations"
+                    [placeholder]="'Select your organization type'"
+                    [required]="true"
+                    [withHelperText]="true"
+                    helperText="Please select your organization type."
+                />
+                <app-input
+                    formControlName="password"
+                    label="Password"
+                    type="password"
+                    placeholder="Enter your password"
+                    [required]="true"
+                    [feedback]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Your password must be at least 8 characters long."
+                />
+                <app-input
+                    formControlName="confirmPassword"
+                    label="Confirm Password"
+                    type="password"
+                    placeholder="Re-enter your password"
+                    [required]="true"
+                    [feedback]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please confirm your password."
+                />
+            </section>
             <app-button
                 label="Create Account"
                 type="submit"
@@ -79,17 +106,10 @@
                 customClass="w-full mt-4"
             />
         </form>
-        <section class="flex flex-row justify-between items-center mt-2">
-            <app-link
-                link="/flow/auth/signup"
-                class="mt-4"
-                [label]="'Don\'t have an account'"
-            />
-            <app-link
-                link="/flow/auth/forgot-password"
-                class="mt-2"
-                [label]="'Forgot Password?'"
-            />
-        </section>
+        <app-link
+            link="/flow/auth/signup"
+            customClass="mt-4"
+            [label]="'Already have an account? Sign In'"
+        />
     </app-card>
 </main>

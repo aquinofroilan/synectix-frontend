@@ -30,7 +30,7 @@ import { SelectModule } from "primeng/select";
     ],
 })
 export class Select extends BaseFormField<string> {
-    @Input() options: { label: string; value: string }[] = [];
+    @Input() options!: { label: string; value: string }[];
     @Input() selectedOption: string = "";
     @Input() editable: boolean = true;
     @Input() showClear: boolean = true;

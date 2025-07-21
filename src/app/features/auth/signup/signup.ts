@@ -25,7 +25,7 @@ export class Signup implements OnInit {
             phoneNumber: new FormControl("", [Validators.required]),
             companyName: new FormControl("", [Validators.required]),
             country: new FormControl("", [Validators.required]),
-            ogranizationType: new FormControl("", [Validators.required]),
+            organizationType: new FormControl("", [Validators.required]),
             password: new FormControl("", [Validators.required]),
             confirmPassword: new FormControl("", [Validators.required]),
         });
