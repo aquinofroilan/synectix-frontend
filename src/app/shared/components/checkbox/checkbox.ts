@@ -6,8 +6,6 @@ import { CheckboxModule } from "primeng/checkbox";
 @Component({
     selector: "app-checkbox",
     imports: [CheckboxModule, FormsModule],
-    templateUrl: "./checkbox.html",
-    styleUrl: "./checkbox.css",
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -15,6 +13,20 @@ import { CheckboxModule } from "primeng/checkbox";
             multi: true,
         },
     ],
+    template: `
+        <div class="flex items-center">
+            <p-checkbox
+                [required]="required"
+                [inputId]="inputId"
+                [name]="name"
+                [disabled]="_disabled"
+                [size]="size"
+                [invalid]=""
+                [variant]="variant"
+            />
+            <label [for]="inputId" class="ml-2"> {{ label }} </label>
+        </div>
+    `,
 })
 export class Checkbox extends BaseFormField<boolean> {
     onCheckboxChange(event: Event): void {

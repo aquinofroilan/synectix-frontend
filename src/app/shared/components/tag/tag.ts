@@ -3,8 +3,7 @@ import { TagModule } from "primeng/tag";
 @Component({
     selector: "app-tag",
     imports: [TagModule],
-    templateUrl: "./tag.html",
-    styleUrl: "./tag.css",
+    template: ` <p-tag [severity]="_severity" [value]="_value" /> `,
 })
 export class Tag {
     _severity: "secondary" | "success" | "info" | "warn" | "danger" | "contrast" = "secondary";

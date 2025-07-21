@@ -4,8 +4,14 @@ import { MeterGroupModule, MeterItem } from "primeng/metergroup";
 @Component({
     selector: "app-meter-group",
     imports: [MeterGroupModule],
-    templateUrl: "./meter-group.html",
-    styleUrl: "./meter-group.css",
+    template: `
+        <p-metergroup
+            [labelOrientation]="labelOrientation"
+            [labelPosition]="labelPosition"
+            [style]="{ height: '300px' }"
+            [value]="value"
+        />
+    `,
 })
 export class MeterGroup {
     @Input({ required: true }) value: MeterItem[] | undefined;

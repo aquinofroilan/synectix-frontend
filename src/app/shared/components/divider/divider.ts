@@ -4,8 +4,9 @@ import { DividerModule } from "primeng/divider";
 @Component({
     selector: "app-divider",
     imports: [DividerModule],
-    templateUrl: "./divider.html",
-    styleUrl: "./divider.css",
+    template: `<p-divider [align]="align" [type]="type">
+        <ng-content select="[selector]"></ng-content>
+    </p-divider> `,
 })
 export class Divider {
     @Input() align: "left" | "center" | "right" = "center";

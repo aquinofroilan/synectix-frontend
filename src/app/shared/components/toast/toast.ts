@@ -3,8 +3,7 @@ import { ToastModule } from "primeng/toast";
 @Component({
     selector: "app-toast",
     imports: [ToastModule],
-    templateUrl: "./toast.html",
-    styleUrl: "./toast.css",
+    template: ` <p-toast [position]="position" [key]="key" /> `,
 })
 export class Toast {
     @Input() position:

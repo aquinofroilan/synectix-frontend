@@ -5,8 +5,9 @@ import { ToggleSwitchModule } from "primeng/toggleswitch";
 @Component({
     selector: "app-toggle-switch",
     imports: [ToggleSwitchModule, FormsModule],
-    templateUrl: "./toggle-switch.html",
-    styleUrl: "./toggle-switch.css",
+    template: `
+        <p-toggleswitch [disabled]="_disabled" [required]="required" [size]="size" [name]="name" [id]="inputId" />
+    `,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
