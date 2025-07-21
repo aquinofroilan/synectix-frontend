@@ -65,7 +65,7 @@ export abstract class BaseFormField<T> implements ControlValueAccessor {
     @Input() required: boolean = false;
     @Input() size: "small" | "large" = "small";
     @Input() autocomplete!: string;
-    @Input() type!: "text" | "password" | "email" | "number" | "textarea";
+    @Input() type!: "text" | "password" | "email" | "number" | "textarea" | "tel";
     @Input() name!: string;
     @Input() label!: string;
     @Input() withLabel!: boolean;

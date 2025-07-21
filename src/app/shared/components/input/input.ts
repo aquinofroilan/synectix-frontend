@@ -11,7 +11,7 @@ import { CommonModule } from "@angular/common";
     imports: [InputTextModule, FormsModule, PasswordModule, Textarea, CommonModule],
     template: `
         <section [class]="customClass">
-            <label [htmlFor]="inputId">{{ label }}</label>
+            <label class="text-sm" [htmlFor]="inputId">{{ label }}</label>
             <input
                 [disabled]="_disabled"
                 *ngIf="type !== 'password'"
@@ -19,7 +19,7 @@ import { CommonModule } from "@angular/common";
                 pInputText
                 [autocomplete]="autocomplete"
                 [placeholder]="placeholder"
-                [size]="size"
+                [pSize]="size"
                 (input)="onInputChange($event)"
             />
             <p-password
