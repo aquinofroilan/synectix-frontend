@@ -1,6 +1,12 @@
-<main class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+<main
+    class="flex flex-col items-center justify-center min-h-screen  bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4"
+>
     <app-card header="Sign Up" subheader="Create an account to get started">
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+        <form
+            [formGroup]="signupForm"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col gap-4"
+        >
             <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <app-input
                     formControlName="firstName"
@@ -107,10 +113,8 @@
                 customClass="w-full mt-4"
             />
         </form>
-        <app-link
-            link="/flow/auth/signin"
-            customClass="mt-4"
-            [label]="'Already have an account? Sign In'"
-        />
+        <app-link link="/flow/auth/signin" customClass="mt-4">
+            Already have an account? Sign In
+        </app-link>
     </app-card>
 </main>

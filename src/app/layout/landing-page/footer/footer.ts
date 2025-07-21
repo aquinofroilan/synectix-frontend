@@ -2,22 +2,18 @@ import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { Link } from "../../../shared/components/link/link";
+import { Logo } from "../../../shared/components/logo/logo";
 
 @Component({
     selector: "app-footer",
-    imports: [RouterLink, CommonModule, Link],
+    imports: [RouterLink, CommonModule, Link, Logo],
     template: `
         <footer class="bg-black text-white py-5 w-full flex flex-col items-center">
             <div class="max-w-7xl sm:px-6 lg:px-8 py-12 w-11/12">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="col-span-1 md:col-span-1">
                         <div class="flex items-center space-x-2 mb-4">
-                            <div
-                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
-                            >
-                                <span class="text-white font-bold text-lg">S</span>
-                            </div>
-                            <span class="text-xl font-bold">Synectix</span>
+                            <app-logo />
                         </div>
                         <p class="text-gray-400 mb-4 text-sm">
                             Streamline your business operations with our comprehensive ERP solution. Built for modern
@@ -53,28 +49,28 @@ import { Link } from "../../../shared/components/link/link";
                         <h3 class="text-lg font-semibold mb-4">Products</h3>
                         <ul class="space-y-2">
                             <li>
-                                <app-link link="/features/analytics" label="Analytics" />
+                                <app-link link="/features/analytics">Analytics</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/inventory" label="Inventory" />
+                                <app-link link="/features/inventory">Inventory</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/sales" label="Sales & CRM" />
+                                <app-link link="/features/sales">Sales & CRM</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/purchasing" label="Purchasing" />
+                                <app-link link="/features/purchasing">Purchasing</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/reports" label="Analytics & Reports" />
+                                <app-link link="/features/reports">Analytics & Reports</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/dashboard" label="Dashboard" />
+                                <app-link link="/features/dashboard">Dashboard</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/reports" label="Analytics & Reports" />
+                                <app-link link="/features/reports">Analytics & Reports</app-link>
                             </li>
                             <li>
-                                <app-link link="/features/dashboard" label="Dashboard" />
+                                <app-link link="/features/dashboard">Dashboard</app-link>
                             </li>
                         </ul>
                     </div>
@@ -84,28 +80,22 @@ import { Link } from "../../../shared/components/link/link";
                         <h3 class="text-lg font-semibold mb-4">Solutions</h3>
                         <ul class="space-y-2">
                             <li>
-                                <app-link link="/solutions/small-business" label="Small Business" />
+                                <app-link link="/solutions/small-business">Small Business</app-link>
                             </li>
                             <li>
-                                <app-link link="/solutions/enterprise" label="Enterprise" />
+                                <app-link link="/solutions/enterprise">Enterprise</app-link>
                             </li>
                             <li>
-                                <app-link link="/solutions/manufacturing" label="Manufacturing" />
+                                <app-link link="/solutions/manufacturing">Manufacturing</app-link>
                             </li>
                             <li>
-                                <app-link link="/solutions/retail" label="Retail" />
+                                <app-link link="/solutions/retail">Retail</app-link>
                             </li>
                             <li>
-                                <app-link link="/solutions/services" label="Professional Services" />
+                                <app-link link="/solutions/services">Professional Services</app-link>
                             </li>
                             <li>
-                                <app-link link="/solutions/retail" label="Retail" />
-                            </li>
-                            <li>
-                                <app-link link="/solutions/services" label="Professional Services" />
-                            </li>
-                            <li>
-                                <app-link link="/integrations" label="Integrations" />
+                                <app-link link="/integrations">Integrations</app-link>
                             </li>
                         </ul>
                     </div>
@@ -140,9 +130,9 @@ import { Link } from "../../../shared/components/link/link";
                     <div class="flex flex-col md:flex-row justify-between items-center">
                         <div class="text-gray-400 text-sm">© {{ year }} Synectix. All rights reserved.</div>
                         <div class="flex space-x-6 mt-4 md:mt-0">
-                            <app-link link="/legal/privacy" label="Privacy Policy" />
-                            <app-link link="/legal/terms" label="Terms of Service"> </app-link>
-                            <app-link link="/legal/cookies" label="Cookie Policy" />
+                            <app-link link="/legal/privacy"> Privacy Policy </app-link>
+                            <app-link link="/legal/terms"> Terms of Service </app-link>
+                            <app-link link="/legal/cookies"> Cookie Policy </app-link>
                         </div>
                     </div>
                 </div>

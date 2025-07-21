@@ -1,4 +1,4 @@
-<main ngClass="flex items-center justify-center h-full p-4 min-h-screen">
+<main ngClass="flex items-center justify-center h-full p-4 min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
     <app-card
         header="Sign In"
         subheader="Please enter your credentials to continue"
@@ -42,16 +42,12 @@
             />
         </form>
         <section class="flex flex-row justify-between items-center mt-2">
-            <app-link
-                link="/flow/auth/signup"
-                class="mt-4"
-                [label]="'Don\'t have an account'"
-            />
-            <app-link
-                link="/flow/auth/forgot-password"
-                class="mt-2"
-                [label]="'Forgot Password?'"
-            />
+            <app-link link="/flow/auth/signup" class="mt-4">
+                Don't have an account?
+            </app-link>
+            <app-link link="/flow/auth/forgot-password" class="mt-2">
+                Forgot Password?
+            </app-link>
         </section>
     </app-card>
 </main>
