@@ -5,8 +5,6 @@ import { RadioButtonModule } from "primeng/radiobutton";
 @Component({
     selector: "app-radio",
     imports: [RadioButtonModule, FormsModule],
-    templateUrl: "./radio.html",
-    styleUrl: "./radio.css",
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -14,6 +12,12 @@ import { RadioButtonModule } from "primeng/radiobutton";
             multi: true,
         },
     ],
+    template: `
+        <div class="flex items-center">
+            <p-radiobutton [name]="name" [value]="_value" [inputId]="inputId" />
+            <label [for]="inputId" class="ml-2">{{ label }}</label>
+        </div>
+    `,
 })
 export class Radio extends BaseFormField<boolean> {
     onRadioChange(event: Event): void {

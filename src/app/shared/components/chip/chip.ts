@@ -4,8 +4,16 @@ import { ChipModule } from "primeng/chip";
 @Component({
     selector: "app-chip",
     imports: [ChipModule],
-    templateUrl: "./chip.html",
-    styleUrl: "./chip.css",
+    template: `
+        <p-chip
+            [label]="label"
+            [alt]="imageAlt"
+            [removable]="removable"
+            [icon]="icon"
+            [styleClass]="styleClass"
+            [image]="image"
+        />
+    `,
 })
 export class Chip {
     @Input({ required: false }) label: string = "";

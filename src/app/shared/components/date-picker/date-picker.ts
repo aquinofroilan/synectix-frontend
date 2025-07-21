@@ -5,8 +5,6 @@ import { DatePickerModule } from "primeng/datepicker";
 @Component({
     selector: "app-date-picker",
     imports: [DatePickerModule, FormsModule],
-    templateUrl: "./date-picker.html",
-    styleUrl: "./date-picker.css",
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -14,6 +12,20 @@ import { DatePickerModule } from "primeng/datepicker";
             multi: true,
         },
     ],
+    template: `
+        <p-datepicker
+            [class]="customClass"
+            [minDate]="min"
+            [maxDate]="max"
+            [selectionMode]="selectionMode"
+            [showButtonBar]="showButtonBar"
+            [hourFormat]="timeFormat"
+            [view]="view"
+            [numberOfMonths]="numberOfMonths"
+            [inline]="inline"
+            [showWeek]="showWeek"
+        />
+    `,
 })
 export class DatePicker extends BaseFormField<Date | Date[]> {
     @Input() min = new Date(1900, 0, 1);

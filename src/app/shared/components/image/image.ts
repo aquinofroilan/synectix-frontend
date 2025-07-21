@@ -4,8 +4,7 @@ import { ImageModule } from "primeng/image";
 @Component({
     selector: "app-image",
     imports: [ImageModule],
-    templateUrl: "./image.html",
-    styleUrl: "./image.css",
+    template: `<p-image [src]="src" [alt]="altImage" [width]="width" /> `,
 })
 export class Image {
     @Input() src: string = "";
