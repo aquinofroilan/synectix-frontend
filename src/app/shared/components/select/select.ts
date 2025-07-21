@@ -7,19 +7,21 @@ import { SelectModule } from "primeng/select";
     selector: "app-select",
     imports: [SelectModule, FormsModule],
     template: `
-        <p-select
-            [options]="options"
-            [(ngModel)]="selectedOption"
-            [placeholder]="placeholder"
-            [editable]="editable"
-            [optionLabel]="label"
-            [showClear]="showClear"
-            [disabled]="_disabled"
-            [required]="required"
-            [variant]="variant"
-            [size]="size"
-            [class]="customClass"
-        />
+        <section [class]="customClass">
+            <label class="text-sm" [htmlFor]="inputId">{{ label }}</label>
+            <p-select
+                [options]="options"
+                [placeholder]="placeholder"
+                optionLabel="label"
+                [showClear]="showClear"
+                [disabled]="_disabled"
+                [required]="required"
+                [variant]="variant"
+                [size]="size"
+                [checkmark]="showCheckMark"
+            />
+            <small>{{ helperText }}</small>
+        </section>
     `,
     providers: [
         {
@@ -30,9 +32,9 @@ import { SelectModule } from "primeng/select";
     ],
 })
 export class Select extends BaseFormField<string> {
-    @Input() options!: { label: string; value: string }[];
-    @Input() selectedOption: string = "";
+    @Input() options!: { label: string; value: string }[] | undefined;
     @Input() editable: boolean = true;
     @Input() showClear: boolean = true;
     @Input() invalid: boolean = false;
+    @Input() showCheckMark: boolean = true;
 }

@@ -4,6 +4,16 @@ import { Card, Input, Button, Link, Select } from "@shared/components";
 import { CommonModule } from "@angular/common";
 import { COUNTRIES, ORGANIZATION_TYPES } from "@shared/constants";
 
+interface Country {
+    label: string;
+    value: string;
+}
+
+interface Organization {
+    label: string;
+    value: string;
+}
+
 @Component({
     selector: "app-signup",
     imports: [ReactiveFormsModule, Card, CommonModule, Input, Button, Link, Select],
@@ -11,10 +21,15 @@ import { COUNTRIES, ORGANIZATION_TYPES } from "@shared/constants";
 })
 export class Signup implements OnInit {
     signupForm!: FormGroup;
-    countries = COUNTRIES.map((country) => ({ label: country.name, value: country.code }));
-    organizations = ORGANIZATION_TYPES.map((org) => ({ label: org.label, value: org.value }));
+    countries!: Country[] | undefined;
+    organizations!: Organization[] | undefined;
 
-    constructor(private signupFormBuilder: FormBuilder) {}
+    constructor(private signupFormBuilder: FormBuilder) {
+        this.countries = COUNTRIES.map((country) => ({ label: country.name, value: country.code }));
+        this.organizations = ORGANIZATION_TYPES.map((org) => ({ label: org.label, value: org.value }));
+        console.log(this.countries);
+        console.log(this.organizations);
+    }
 
     ngOnInit(): void {
         this.signupForm = this.signupFormBuilder.group({

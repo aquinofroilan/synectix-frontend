@@ -1,6 +1,6 @@
-<main>
+<main class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
     <app-card header="Sign Up" subheader="Create an account to get started">
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
             <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <app-input
                     formControlName="firstName"
@@ -66,6 +66,7 @@
                     label="Country"
                     [withHelperText]="true"
                     helperText="Please select your country."
+                    customClass="w-full flex flex-col"
                 />
                 <app-select
                     formControlName="organizationType"
@@ -74,13 +75,14 @@
                     [placeholder]="'Select your organization type'"
                     [required]="true"
                     [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     helperText="Please select your organization type."
                 />
                 <app-input
                     formControlName="password"
                     label="Password"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="**********"
                     [required]="true"
                     [feedback]="true"
                     customClass="w-full flex flex-col"
@@ -91,9 +93,8 @@
                     formControlName="confirmPassword"
                     label="Confirm Password"
                     type="password"
-                    placeholder="Re-enter your password"
+                    placeholder="**********"
                     [required]="true"
-                    [feedback]="true"
                     customClass="w-full flex flex-col"
                     [withHelperText]="true"
                     helperText="Please confirm your password."
@@ -107,7 +108,7 @@
             />
         </form>
         <app-link
-            link="/flow/auth/signup"
+            link="/flow/auth/signin"
             customClass="mt-4"
             [label]="'Already have an account? Sign In'"
         />
