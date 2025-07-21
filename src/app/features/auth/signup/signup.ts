@@ -27,8 +27,6 @@ export class Signup implements OnInit {
     constructor(private signupFormBuilder: FormBuilder) {
         this.countries = COUNTRIES.map((country) => ({ label: country.name, value: country.code }));
         this.organizations = ORGANIZATION_TYPES.map((org) => ({ label: org.label, value: org.value }));
-        console.log(this.countries);
-        console.log(this.organizations);
     }
 
     ngOnInit(): void {
