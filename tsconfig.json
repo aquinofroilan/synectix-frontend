@@ -19,7 +19,7 @@
             "@shared/*": ["app/shared/*"],
             "@app/*": ["app/*"],
             "@assets/*": ["assets/*"],
-            "@environments/*": ["app/environments/*"],
+            "@environments/*": ["environments/*"],
             "@features/*": ["app/features/*"]
         }
     },
