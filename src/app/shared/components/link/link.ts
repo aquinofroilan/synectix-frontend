@@ -13,9 +13,9 @@ import { RouterLink } from "@angular/router";
     `,
 })
 export class Link {
-    @Input() link: string = "";
-    @Input() customClass: string = "";
-    @Input() button: boolean = false;
+    @Input() link = "";
+    @Input() customClass = "";
+    @Input() button = false;
 
     get combinedClasses(): string {
         const baseClass = this.button ? "bg-blue-500 p-5 text-white" : "hover:underline underline-offset-4 text-sm";
