@@ -1,11 +1,11 @@
 import { Component, forwardRef, Input } from "@angular/core";
-import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { NG_VALUE_ACCESSOR, ReactiveFormsModule, FormControl } from "@angular/forms";
 import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { SelectModule } from "primeng/select";
 
 @Component({
     selector: "app-select",
-    imports: [SelectModule, FormsModule],
+    imports: [SelectModule, ReactiveFormsModule],
     template: `
         <section [class]="customClass">
             <label class="text-sm" [htmlFor]="inputId">{{ label }}</label>
@@ -19,6 +19,7 @@ import { SelectModule } from "primeng/select";
                 [variant]="variant"
                 [size]="size"
                 [checkmark]="showCheckMark"
+                [formControl]="formControl"
             />
             <small>{{ helperText }}</small>
         </section>
@@ -33,8 +34,9 @@ import { SelectModule } from "primeng/select";
 })
 export class Select extends BaseFormField<string> {
     @Input() options!: { label: string; value: string }[] | undefined;
-    @Input() editable: boolean = true;
-    @Input() showClear: boolean = true;
-    @Input() invalid: boolean = false;
-    @Input() showCheckMark: boolean = true;
+    @Input() editable = true;
+    @Input() showClear = true;
+    @Input() invalid = false;
+    @Input() showCheckMark = true;
+    @Input() formControl!: FormControl<unknown>;
 }
