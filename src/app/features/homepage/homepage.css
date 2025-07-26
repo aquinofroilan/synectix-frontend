@@ -1,0 +1,175 @@
+/* Hero section background pattern */
+.bg-grid-pattern {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Card hover animations */
+app-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+app-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Feature card styling */
+.feature-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Testimonial avatar styling */
+.testimonial-avatar {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Demo section styling */
+.demo-dashboard {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* CTA section styling */
+.cta-section {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="rgba(255,255,255,0.1)" fill-opacity="0.1"><polygon points="0,60 60,0 60,60"/></g></g></svg>') repeat;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    from { transform: translateX(0); }
+    to { transform: translateX(60px); }
+}
+
+/* Button hover effects */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Stats counter animation */
+.stat-number {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section dividers */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .feature-grid {
+        gap: 1.5rem;
+    }
+}
+
+/* Dark mode support for future implementation */
+@media (prefers-color-scheme: dark) {
+    .bg-grid-pattern {
+        background-image:
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    }
+}
+
+/* Loading animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Progress bar animations */
+.progress-bar {
+    animation: progressGrow 2s ease-out;
+}
+
+@keyframes progressGrow {
+    from { width: 0; }
+    to { width: var(--progress-width); }
+}
+
+/* Interactive elements */
+.interactive-demo {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.interactive-demo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}

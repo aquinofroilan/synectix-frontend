@@ -1,4 +1,4 @@
-import { Component, type OnInit } from "@angular/core";
+import { Component, inject, type OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
 import { Card, Input, Button, Link, Select } from "@shared/components";
 import { CommonModule } from "@angular/common";
@@ -24,11 +24,11 @@ export class Signup implements OnInit {
     countries!: Country[] | undefined;
     organizations!: Organization[] | undefined;
 
-    constructor(private signupFormBuilder: FormBuilder) {
+    private signupFormBuilder = inject(FormBuilder);
+
+    constructor() {
         this.countries = COUNTRIES.map((country) => ({ label: country.name, value: country.code }));
         this.organizations = ORGANIZATION_TYPES.map((org) => ({ label: org.label, value: org.value }));
-        console.log(this.countries);
-        console.log(this.organizations);
     }
 
     ngOnInit(): void {

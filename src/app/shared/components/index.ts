@@ -5,3 +5,4 @@ export { Input } from "./input/input";
 export { Link } from "./link/link";
 export { Chip } from "./chip/chip";
 export { Select } from "./select/select";
+export { Logo } from "./logo/logo";

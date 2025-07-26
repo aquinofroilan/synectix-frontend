@@ -1,14 +1,24 @@
 import { Component, Input } from "@angular/core";
-import { RouterLink } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
+
 @Component({
     selector: "app-link",
+    standalone: true,
     imports: [RouterLink, CommonModule],
-    template: ` <a [routerLink]="link" [ngClass]="[customClass, defaultStyle]">{{ label }}</a> `,
+    template: `
+        <a [routerLink]="link" [ngClass]="combinedClasses">
+            <ng-content></ng-content>
+        </a>
+    `,
 })
 export class Link {
-    defaultStyle: string = "hover:underline underline-offset-4 text-xs";
-    @Input() link: string = "";
-    @Input() customClass: string = "";
-    @Input() label: string = "";
+    @Input() link = "";
+    @Input() customClass = "";
+    @Input() button = false;
+
+    get combinedClasses(): string {
+        const baseClass = this.button ? "bg-blue-500 p-5 text-white" : "hover:underline underline-offset-4 text-sm";
+        return `${baseClass} ${this.customClass}`;
+    }
 }
