@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { ControlValueAccessor } from "@angular/forms";
 import { Directive, Input } from "@angular/core";
 
@@ -8,7 +10,7 @@ export abstract class BaseFormField<T> implements ControlValueAccessor {
     protected _value!: T;
 
     /** Whether the control is disabled */
-    protected _disabled: boolean = false;
+    protected _disabled = false;
 
     /** Callbacks registered by Angular forms */
     protected onChange: (value: T) => void = () => {};
@@ -62,18 +64,19 @@ export abstract class BaseFormField<T> implements ControlValueAccessor {
     protected onDisabledChange(_isDisabled: boolean): void {}
 
     @Input() placeholder!: string;
-    @Input() required: boolean = false;
+    @Input() required = false;
     @Input() size: "small" | "large" = "small";
     @Input() autocomplete!: string;
-    @Input() type!: "text" | "password" | "email" | "number" | "textarea" | "tel";
+    @Input() type: "text" | "password" | "email" | "number" | "textarea" | "tel" = "text";
+
     @Input() name!: string;
     @Input() label!: string;
     @Input() withLabel!: boolean;
     @Input() withHelperText!: boolean;
     @Input() helperText!: string;
-    @Input() customClass: string = "";
+    @Input() customClass = "";
     @Input() variant: "filled" | "outlined" = "filled";
-    @Input() toggleMask: boolean = false;
-    @Input() feedback: boolean = false;
+    @Input() toggleMask = false;
+    @Input() feedback = false;
     @Input() inputId: string = Math.random().toString(36).substring(2);
 }

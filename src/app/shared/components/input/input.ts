@@ -13,7 +13,6 @@ import { CommonModule } from "@angular/common";
         <section [class]="customClass">
             <label class="text-sm" [htmlFor]="inputId">{{ label }}</label>
             <input
-                [disabled]="_disabled"
                 *ngIf="type !== 'password'"
                 [type]="type"
                 pInputText
@@ -23,7 +22,6 @@ import { CommonModule } from "@angular/common";
                 (input)="onInputChange($event)"
             />
             <p-password
-                [disabled]="_disabled"
                 *ngIf="type === 'password'"
                 [toggleMask]="toggleMask"
                 [feedback]="feedback"
