@@ -30,7 +30,7 @@ export class Signup implements OnInit {
     constructor() {
         this.lookUpService.getCountries().subscribe((countries) => {
             this.countries = countries.map((country) => ({
-                label: country.code,
+                label: country.name,
                 value: country.id.toString(),
             }));
         });

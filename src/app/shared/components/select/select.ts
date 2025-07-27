@@ -1,11 +1,11 @@
 import { Component, forwardRef, Input } from "@angular/core";
-import { NG_VALUE_ACCESSOR, ReactiveFormsModule, FormControl, type ControlValueAccessor } from "@angular/forms";
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, type ControlValueAccessor } from "@angular/forms";
 import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { SelectModule } from "primeng/select";
 
 @Component({
     selector: "app-select",
-    imports: [SelectModule, ReactiveFormsModule],
+    imports: [SelectModule, ReactiveFormsModule, FormsModule],
     template: `
         <section [class]="customClass">
             <label class="text-sm" [htmlFor]="inputId">{{ label }}</label>
@@ -18,6 +18,10 @@ import { SelectModule } from "primeng/select";
                 [variant]="variant"
                 [size]="size"
                 [checkmark]="showCheckMark"
+                [(ngModel)]="_value"
+                (onChange)="emitValue($event.value)"
+                [disabled]="_disabled"
+                [inputId]="inputId"
             />
             <small>{{ helperText }}</small>
         </section>

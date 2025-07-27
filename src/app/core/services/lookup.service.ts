@@ -3,7 +3,7 @@ import { HttpService } from "./http.service";
 import { Observable } from "rxjs";
 interface Country {
     id: number;
-    code: string;
+    name: string;
 }
 
 interface OrganizationType {
