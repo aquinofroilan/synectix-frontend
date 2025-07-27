@@ -2,7 +2,7 @@ import { Component, inject, type OnInit } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
 import { Card, Input, Button, Link, Select } from "@shared/components";
 import { CommonModule } from "@angular/common";
-import { COUNTRIES, ORGANIZATION_TYPES } from "@shared/constants";
+import { LookupService } from "@app/core/services/lookup.service";
 
 interface Country {
     label: string;
@@ -25,10 +25,21 @@ export class Signup implements OnInit {
     organizations!: Organization[] | undefined;
 
     private signupFormBuilder = inject(FormBuilder);
+    private lookUpService = inject(LookupService);
 
     constructor() {
-        this.countries = COUNTRIES.map((country) => ({ label: country.name, value: country.code }));
-        this.organizations = ORGANIZATION_TYPES.map((org) => ({ label: org.label, value: org.value }));
+        this.lookUpService.getCountries().subscribe((countries) => {
+            this.countries = countries.map((country) => ({
+                label: country.name,
+                value: country.id.toString(),
+            }));
+        });
+        this.lookUpService.getOrganizationTypes().subscribe((organizations) => {
+            this.organizations = organizations.map((org) => ({
+                label: org.name,
+                value: org.id.toString(),
+            }));
+        });
     }
 
     ngOnInit(): void {

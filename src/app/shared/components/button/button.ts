@@ -18,10 +18,10 @@ import { CommonModule } from "@angular/common";
     `,
 })
 export class Button {
-    @Input() disabled: boolean = false;
+    @Input() disabled = false;
     @Input() label!: string;
     @Input() type: "button" | "submit" | "reset" = "button";
-    @Input() customClass: string = "";
+    @Input() customClass = "";
     @Input() size: "small" | "large" = "small";
     @Input() routerLink: string | null = null;
 

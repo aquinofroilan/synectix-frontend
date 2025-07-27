@@ -17,6 +17,6 @@ import { ConfirmPopupModule } from "primeng/confirmpopup";
     `,
 })
 export class ConfirmPopup {
-    @Input() message: string = "";
-    @Input() icon: string = "";
+    @Input() message = "";
+    @Input() icon = "";
 }
