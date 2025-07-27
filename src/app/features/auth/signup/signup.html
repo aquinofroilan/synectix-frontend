@@ -1,5 +1,5 @@
 <main
-    class="flex flex-col items-center justify-center min-h-screen  bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4"
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4"
 >
     <app-card header="Sign Up" subheader="Create an account to get started">
         <form
@@ -83,6 +83,24 @@
                     [withHelperText]="true"
                     customClass="w-full flex flex-col"
                     helperText="Please select your organization type."
+                />
+                <app-input
+                    formControlName="registrationNumber"
+                    label="Registration Number"
+                    placeholder="Enter your registration number"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter your registration number."
+                />
+                <app-input
+                    formControlName="taxNumber"
+                    label="Tax Number"
+                    placeholder="Enter your tax number"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter your tax number."
                 />
                 <app-input
                     formControlName="password"
