@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from "@angular/core";
-import { NG_VALUE_ACCESSOR, ReactiveFormsModule, FormControl } from "@angular/forms";
+import { NG_VALUE_ACCESSOR, ReactiveFormsModule, FormControl, type ControlValueAccessor } from "@angular/forms";
 import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { SelectModule } from "primeng/select";
 
@@ -14,12 +14,10 @@ import { SelectModule } from "primeng/select";
                 [placeholder]="placeholder"
                 optionLabel="label"
                 [showClear]="showClear"
-                [disabled]="_disabled"
                 [required]="required"
                 [variant]="variant"
                 [size]="size"
                 [checkmark]="showCheckMark"
-                [formControl]="formControl"
             />
             <small>{{ helperText }}</small>
         </section>
@@ -32,11 +30,10 @@ import { SelectModule } from "primeng/select";
         },
     ],
 })
-export class Select extends BaseFormField<string> {
+export class Select extends BaseFormField<string> implements ControlValueAccessor {
     @Input() options!: { label: string; value: string }[] | undefined;
     @Input() editable = true;
     @Input() showClear = true;
     @Input() invalid = false;
     @Input() showCheckMark = true;
-    @Input() formControl!: FormControl<unknown>;
 }
