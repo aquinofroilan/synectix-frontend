@@ -32,7 +32,12 @@
                         "outputMode": "server",
                         "ssr": {
                             "entry": "src/server.ts"
-                        }
+                        },
+                        "outputHashing": "all",
+                        "sourceMap": false,
+                        "extractLicenses": true,
+                        "namedChunks": false,
+                        "aot": true
                     },
                     "configurations": {
                         "production": {
@@ -48,7 +53,12 @@
                                     "maximumError": "8kB"
                                 }
                             ],
-                            "outputHashing": "all"
+                            "outputHashing": "all",
+                            "optimization": true,
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true
                         },
                         "development": {
                             "optimization": false,
