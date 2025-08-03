@@ -120,6 +120,7 @@ export class Signup implements OnInit {
                 });
         } else {
             console.error("Form is invalid");
+            console.error(this.signupForm.value);
         }
     }
 }
