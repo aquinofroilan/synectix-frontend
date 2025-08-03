@@ -1,11 +1,12 @@
 import { Component, inject, type OnInit } from "@angular/core";
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators, type FormGroup } from "@angular/forms";
-import { Card } from "@shared/components";
+import { Card, Input } from "@shared/components";
 import { ToggleSwitch } from "@shared/components/toggle-switch/toggle-switch";
+import { Button } from "../../../shared/components/button/button";
 
 @Component({
     selector: "app-warehouse",
-    imports: [Card, ReactiveFormsModule, ToggleSwitch],
+    imports: [Card, ReactiveFormsModule, ToggleSwitch, Input, Button],
     templateUrl: "./warehouse.html",
 })
 export class Warehouse implements OnInit {

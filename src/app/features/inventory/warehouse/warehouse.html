@@ -15,19 +15,34 @@
                     formControlName="name"
                     label="Warehouse Name"
                     placeholder="Enter warehouse name"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter the warehouse name."
                 />
                 <app-input
                     formControlName="location"
                     label="Location"
                     placeholder="Enter location"
+                    customClass="w-full flex flex-col"
+                    [required]="true"
+                    helperText="Please enter the warehouse location."
+                    [withHelperText]="true"
                 />
                 <app-toggle-switch
                     formControlName="isActive"
                     label="Active"
                     [withHelperText]="true"
                     helperText="Toggle to activate or deactivate the warehouse."
+                    label="Is Active"
                 />
             </section>
+            <app-button
+                type="submit"
+                [disabled]="!warehouseForm.valid"
+                class="mt-4"
+                label="Create Warehouse"
+            />
         </form>
     </app-card>
 </main>

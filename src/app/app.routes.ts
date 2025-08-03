@@ -27,14 +27,14 @@ export const routes: Routes = [
     },
     {
         path: "u",
-        title: "Synectix | Dashboard",
         children: [
             {
                 path: "0",
                 children: [
                     {
                         title: "Synectix | Warehouse",
-                        loadComponent: () => import("@features/inventory/inventory").then((m) => m.Inventory),
+                        path: "warehouse",
+                        loadComponent: () => import("@features/inventory/warehouse/warehouse").then((m) => m.Warehouse),
                     },
                 ],
             },
