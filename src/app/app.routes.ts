@@ -32,7 +32,7 @@ export const routes: Routes = [
                 path: "0",
                 children: [
                     {
-                        title: "Synectix | Warehouse",
+                        title: "Synectix | Create new warehouse",
                         path: "warehouse",
                         loadComponent: () => import("@features/inventory/warehouse/warehouse").then((m) => m.Warehouse),
                     },
