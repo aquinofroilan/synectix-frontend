@@ -55,15 +55,6 @@
                     [withHelperText]="true"
                     helperText="Please enter a valid phone number."
                 />
-                <app-input
-                    formControlName="companyName"
-                    label="Company Name"
-                    placeholder="Enter your company name"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter the name of your company."
-                />
                 <app-select
                     formControlName="country"
                     [options]="countries"
@@ -73,6 +64,15 @@
                     [withHelperText]="true"
                     helperText="Please select your country."
                     customClass="w-full flex flex-col"
+                />
+                <app-input
+                    formControlName="companyName"
+                    label="Company Name"
+                    placeholder="Enter your company name"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter the name of your company."
                 />
                 <app-select
                     formControlName="organizationType"

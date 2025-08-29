@@ -1,5 +1,6 @@
 import { inject, Injectable } from "@angular/core";
 import { HttpService } from "../http.service";
+import type { Observable } from "rxjs";
 
 @Injectable({
     providedIn: "root",
@@ -42,5 +43,15 @@ export class AuthenticationService {
             password,
             confirmPassword,
         });
+    }
+
+    checkEmailExists(email: string): Observable<boolean> {
+        return this.httpService.post("/auth/validate/email", { email });
+    }
+    checkUsernameExists(username: string): Observable<boolean> {
+        return this.httpService.post("/auth/validate/username", { username });
+    }
+    checkPhoneExists(phoneNumber: string): Observable<boolean> {
+        return this.httpService.post("/auth/validate/phone", { phoneNumber });
     }
 }

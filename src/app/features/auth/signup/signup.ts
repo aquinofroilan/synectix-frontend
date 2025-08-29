@@ -4,6 +4,7 @@ import { Card, Input, Button, Link, Select } from "@shared/components";
 import { CommonModule } from "@angular/common";
 import { LookupService } from "@app/core/services/lookup.service";
 import { AuthenticationService } from "@app/core/services/authentication/authentication.service";
+import { AsyncValidators } from "@shared/utils/validators/async-validators";
 
 interface Country {
     label: string;
@@ -46,12 +47,14 @@ export class Signup implements OnInit {
 
     constructor() {
         this.lookUpService.getCountries().subscribe((countries) => {
+            console.log(countries);
             this.countries = countries.map((country) => ({
                 label: country.name,
                 value: country.id.toString(),
             }));
         });
         this.lookUpService.getOrganizationTypes().subscribe((organizations) => {
+            console.log(organizations);
             this.organizations = organizations.map((org) => ({
                 label: org.name,
                 value: org.id.toString(),
@@ -59,14 +62,23 @@ export class Signup implements OnInit {
         });
     }
     ngOnInit() {
-        console.log("Signup component initialized");
         this.signupForm = this.signupFormBuilder.group({
             firstName: this.signupFormBuilder.control("", [Validators.required]),
             lastName: this.signupFormBuilder.control("", [Validators.required]),
-            email: this.signupFormBuilder.control("", [Validators.required, Validators.email]),
-            username: this.signupFormBuilder.control("", [Validators.required]),
+            email: this.signupFormBuilder.control("", [
+                Validators.required,
+                Validators.email,
+                AsyncValidators.email(this.authenticationService),
+            ]),
+            username: this.signupFormBuilder.control("", [
+                Validators.required,
+                AsyncValidators.username(this.authenticationService),
+            ]),
             password: this.signupFormBuilder.control("", [Validators.required]),
-            phoneNumber: this.signupFormBuilder.control("", [Validators.required]),
+            phoneNumber: this.signupFormBuilder.control("", [
+                Validators.required,
+                AsyncValidators.phone(this.authenticationService),
+            ]),
             companyName: this.signupFormBuilder.control("", [Validators.required]),
             country: this.signupFormBuilder.control({ label: "", value: "" }, [Validators.required]),
             organizationType: this.signupFormBuilder.control({ label: "", value: "" }, [Validators.required]),
@@ -78,7 +90,6 @@ export class Signup implements OnInit {
 
     onSubmit(): void {
         if (this.signupForm.valid) {
-            // Now you get full type safety without type assertions
             const {
                 firstName,
                 lastName,
@@ -93,6 +104,7 @@ export class Signup implements OnInit {
                 registrationNumber,
                 confirmPassword,
             } = this.signupForm.getRawValue();
+            console.log(this.signupForm.getRawValue());
             this.authenticationService
                 .signUp(
                     firstName,

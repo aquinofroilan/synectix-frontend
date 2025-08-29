@@ -18,7 +18,6 @@ import { SelectModule } from "primeng/select";
                 [variant]="variant"
                 [size]="size"
                 [checkmark]="showCheckMark"
-                [optionValue]="_value"
                 (onChange)="onSelectChange($event.value)"
                 [(ngModel)]="_value"
                 (onChange)="emitValue($event.value)"
