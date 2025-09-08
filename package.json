@@ -38,7 +38,7 @@
         "@angular/core": "^20.2.1",
         "@angular/forms": "^20.1.4",
         "@angular/platform-browser": "^20.1.4",
-        "@angular/platform-server": "^20.1.0",
+        "@angular/platform-server": "^20.2.4",
         "@angular/router": "^20.1.0",
         "@angular/ssr": "^20.2.0",
         "@primeuix/themes": "^1.2.3",
