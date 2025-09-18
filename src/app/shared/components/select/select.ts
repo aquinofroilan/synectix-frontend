@@ -18,6 +18,7 @@ import { SelectModule } from "primeng/select";
                 [variant]="variant"
                 [size]="size"
                 [checkmark]="showCheckMark"
+                (onChange)="onSelectChange($event.value)"
                 [(ngModel)]="_value"
                 (onChange)="emitValue($event.value)"
                 [disabled]="_disabled"
@@ -40,4 +41,10 @@ export class Select extends BaseFormField<string> implements ControlValueAccesso
     @Input() showClear = true;
     @Input() invalid = false;
     @Input() showCheckMark = true;
+
+    onSelectChange(value: string): void {
+        console.log(value);
+        console.log(this._value);
+        this.emitValue(value);
+    }
 }

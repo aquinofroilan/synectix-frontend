@@ -25,4 +25,19 @@ export const routes: Routes = [
             },
         ],
     },
+    {
+        path: "u",
+        children: [
+            {
+                path: "0",
+                children: [
+                    {
+                        title: "Synectix | Create new warehouse",
+                        path: "warehouse",
+                        loadComponent: () => import("@features/inventory/warehouse/warehouse").then((m) => m.Warehouse),
+                    },
+                ],
+            },
+        ],
+    },
 ];

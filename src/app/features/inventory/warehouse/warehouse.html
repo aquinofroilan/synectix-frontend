@@ -1,0 +1,48 @@
+<main
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4"
+>
+    <app-card
+        header="Create warehouse"
+        subheader="Create a warehouse to manage your inventory"
+    >
+        <form
+            [formGroup]="warehouseForm"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col gap-4"
+        >
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <app-input
+                    formControlName="name"
+                    label="Warehouse Name"
+                    placeholder="Enter warehouse name"
+                    [required]="true"
+                    customClass="w-full flex flex-col"
+                    [withHelperText]="true"
+                    helperText="Please enter the warehouse name."
+                />
+                <app-input
+                    formControlName="location"
+                    label="Location"
+                    placeholder="Enter location"
+                    customClass="w-full flex flex-col"
+                    [required]="true"
+                    helperText="Please enter the warehouse location."
+                    [withHelperText]="true"
+                />
+                <app-toggle-switch
+                    formControlName="isActive"
+                    label="Active"
+                    [withHelperText]="true"
+                    helperText="Toggle to activate or deactivate the warehouse."
+                    label="Is Active"
+                />
+            </section>
+            <app-button
+                type="submit"
+                [disabled]="!warehouseForm.valid"
+                class="mt-4"
+                label="Create Warehouse"
+            />
+        </form>
+    </app-card>
+</main>
