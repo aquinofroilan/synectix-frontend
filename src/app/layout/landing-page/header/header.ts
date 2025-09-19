@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Link, Logo, Button } from "@shared/components";
+import { Logo, Button } from "@shared/components";
 
 @Component({
     selector: "app-header",
-    imports: [CommonModule, Link, Logo, Button],
+    imports: [CommonModule, Logo, Button],
     template: `
         <header
             class="sticky w-full top-0 z-50 bg-white border-b border-gray-200 shadow-sm flex items-center justify-center"
@@ -16,16 +16,16 @@ import { Link, Logo, Button } from "@shared/components";
                     </div>
 
                     <nav class="hidden md:flex items-center space-x-8">
-                        <app-link link="/features"> Features </app-link>
-                        <app-link link="/solutions"> Solutions </app-link>
-                        <app-link link="/pricing"> Pricing </app-link>
-                        <app-link link="/resources"> Resources </app-link>
-                        <app-link link="/support"> Support </app-link>
+                        <app-button href="/features" label="Features" [asAnchor]="true" variant="link" />
+                        <app-button href="/solutions" label="Solutions" [asAnchor]="true" variant="link" />
+                        <app-button href="/pricing" label="Pricing" [asAnchor]="true" variant="link" />
+                        <app-button href="/resources" label="Resources" [asAnchor]="true" variant="link" />
+                        <app-button href="/support" label="Support" [asAnchor]="true" variant="link" />
                     </nav>
 
                     <div class="flex items-center space-x-4">
-                        <app-button link="/flow/auth/signin" variant="ghost" [asAnchor]="true" label="Sign In" />
-                        <app-button link="/flow/auth/signup" [asAnchor]="true" label="Start Free Trial" />
+                        <app-button href="/flow/auth/signin" variant="ghost" [asAnchor]="true" label="Sign In" />
+                        <app-button href="/flow/auth/signup" [asAnchor]="true" label="Start Free Trial" />
                     </div>
                 </div>
             </div>

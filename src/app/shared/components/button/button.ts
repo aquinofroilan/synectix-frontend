@@ -1,15 +1,14 @@
 import { Component, Input } from "@angular/core";
-import { RouterLink } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { HlmButton, type ButtonVariants } from "@spartan-ng/helm/button";
 
 @Component({
     selector: "app-button",
-    imports: [RouterLink, CommonModule, HlmButton],
+    imports: [CommonModule, HlmButton],
     template: `
         @if (asAnchor) {
             <a
-                [routerLink]="routerLink"
+                [href]="href"
                 hlmBtn
                 [variant]="variant"
                 [class]="customClass + 'cursor-pointer'"
@@ -66,7 +65,7 @@ export class Button {
     @Input() asAnchor = false;
     @Input() withIcon = false;
     @Input() isLoading = false;
-    @Input() routerLink: string | null = null;
+    @Input() href: string | null = null;
 
     protected onDisabledChange(isDisabled: boolean): void {
         this.disabled = isDisabled;
