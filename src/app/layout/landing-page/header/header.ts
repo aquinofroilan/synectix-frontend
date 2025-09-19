@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Logo, Button } from "@shared/components";
+import { Logo, Link } from "@shared/components";
 
 @Component({
     selector: "app-header",
-    imports: [CommonModule, Logo, Button],
+    imports: [CommonModule, Logo, Link],
     template: `
         <header
             class="sticky w-full top-0 z-50 bg-white border-b border-gray-200 shadow-sm flex items-center justify-center"
@@ -16,16 +16,16 @@ import { Logo, Button } from "@shared/components";
                     </div>
 
                     <nav class="hidden md:flex items-center space-x-8">
-                        <app-button href="/features" label="Features" [asAnchor]="true" variant="link" />
-                        <app-button href="/solutions" label="Solutions" [asAnchor]="true" variant="link" />
-                        <app-button href="/pricing" label="Pricing" [asAnchor]="true" variant="link" />
-                        <app-button href="/resources" label="Resources" [asAnchor]="true" variant="link" />
-                        <app-button href="/support" label="Support" [asAnchor]="true" variant="link" />
+                        <app-link href="/features" label="Features" />
+                        <app-link href="/solutions" label="Solutions" />
+                        <app-link href="/pricing" label="Pricing"/>
+                        <app-link href="/resources" label="Resources"/>
+                        <app-link href="/support" label="Support"/>
                     </nav>
 
                     <div class="flex items-center space-x-4">
-                        <app-button href="/flow/auth/signin" variant="ghost" [asAnchor]="true" label="Sign In" />
-                        <app-button href="/flow/auth/signup" [asAnchor]="true" label="Start Free Trial" />
+                        <app-link href="/flow/auth/signin" label="Sign In" />
+                        <app-link variant="default" href="/flow/auth/signup" label="Start Free Trial" />
                     </div>
                 </div>
             </div>
