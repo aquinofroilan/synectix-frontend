@@ -1,6 +1,6 @@
 <app-header></app-header>
 <section
-    class="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden w-full"
+    class="relative overflow-hidden w-full"
 >
     <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
     <div class="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
@@ -8,13 +8,7 @@
             <h1
                 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
             >
-                The Complete
-                <span
-                    class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-                >
-                    ERP Solution
-                </span>
-                for Modern Business
+                The Complete ERP Solution for Modern Business
             </h1>
             <p
                 class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
@@ -24,44 +18,15 @@
                 platform. Built for the future, designed for today.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-                <a
+                <app-link
+                    variant="default"
                     routerLink="/flow/auth/signup"
-                    class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
-                >
-                    Start Free Trial
-                    <svg
-                        class="ml-2 w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        ></path>
-                    </svg>
-                </a>
-                <a
+                    label="Start Free Trial"
+                />
+                <app-link
                     href="#demo"
-                    class="inline-flex items-center px-8 py-4 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-lg border border-gray-300 transition-colors duration-200 text-lg"
-                >
-                    Watch Demo
-                    <svg
-                        class="ml-2 w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        ></path>
-                    </svg>
-                </a>
+                    label="Watch Demo"
+                />
             </div>
             <!-- Trust indicators -->
             <p class="text-sm text-gray-500 mb-8">
@@ -76,7 +41,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div *ngFor="let stat of stats" class="text-center">
-                <div class="text-3xl lg:text-4xl font-bold text-blue-600 mb-2">
+                <div class="text-3xl lg:text-4xl font-bold mb-2">
                     {{ stat.number }}
                 </div>
                 <div class="text-gray-600 font-medium">{{ stat.label }}</div>
@@ -111,25 +76,10 @@
                     <p class="text-gray-600 mb-4 leading-relaxed">
                         {{ feature.description }}
                     </p>
-                    <a
+                    <app-link
                         [routerLink]="feature.link"
-                        class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors"
-                    >
-                        Learn more
-                        <svg
-                            class="ml-1 w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                            ></path>
-                        </svg>
-                    </a>
+                        [href]="feature.link"
+                        label="Learn More"/>
                 </div>
             </app-card>
         </div>
@@ -225,7 +175,6 @@
                 </ul>
                 <app-button
                     label="Schedule a Demo"
-                    customClass="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 />
             </div>
             <div class="mt-12 lg:mt-0">
@@ -330,43 +279,28 @@
 </section>
 
 <!-- CTA Section -->
-<section class="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
+<section class="bg-gradient-to-b from-[#f9fafb] to-black py-36">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+        <h2 class="text-3xl lg:text-4xl font-bold text-black mb-6">
             Ready to Transform Your Business?
         </h2>
-        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
             Join thousands of companies already using Synectix to streamline
             operations and drive growth.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a
+            <app-link
+                variant="default"
                 routerLink="/flow/auth/signup"
-                class="inline-flex items-center px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-lg transition-colors duration-200 text-lg"
-            >
-                Start Free Trial
-                <svg
-                    class="ml-2 w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    ></path>
-                </svg>
-            </a>
-            <a
+                label="Start Free Trial"
+            />
+            <app-link
                 routerLink="/contact"
-                class="inline-flex items-center px-8 py-4 border-2 border-white hover:bg-white hover:text-blue-600 text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
-            >
-                Contact Sales
-            </a>
+                label="Contact Sales"
+                computedClass="text-white"
+            />
         </div>
-        <p class="text-blue-100 text-sm mt-6">
+        <p class="text-sm text-white mt-6">
             No credit card required • 30-day free trial • Cancel anytime
         </p>
     </div>

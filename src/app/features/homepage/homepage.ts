@@ -5,10 +5,11 @@ import { Button } from "@shared/components/button/button";
 import { Card } from "@shared/components/card/card";
 import { Header } from "@app/layout/landing-page/header/header";
 import { Footer } from "@app/layout/landing-page/footer/footer";
+import { Link } from "@shared/components";
 
 @Component({
     selector: "app-homepage",
-    imports: [CommonModule, RouterLink, Button, Card, Header, Footer],
+    imports: [CommonModule, RouterLink, Button, Card, Header, Footer, Link],
     templateUrl: "./homepage.html",
     styleUrl: "./homepage.css",
 })
@@ -59,7 +60,7 @@ export class Homepage {
             name: "Sarah Johnson",
             company: "TechCorp Industries",
             role: "CFO",
-            avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face",
+            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
             quote: "Synectix transformed our financial operations. We reduced month-end closing time by 75% and improved accuracy significantly.",
         },
         {
