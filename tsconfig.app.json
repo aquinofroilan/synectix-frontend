@@ -7,6 +7,6 @@
         "composite": true,
         "types": ["node"]
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts", "libs/ui/ui-button-helm/src//*.ts"],
     "exclude": ["src/**/*.spec.ts"]
 }

@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Link, Logo } from "@shared/components";
+import { Link, Logo, Button } from "@shared/components";
 
 @Component({
     selector: "app-header",
-    imports: [CommonModule, Link, Logo],
+    imports: [CommonModule, Link, Logo, Button],
     template: `
         <header
             class="sticky w-full top-0 z-50 bg-white border-b border-gray-200 shadow-sm flex items-center justify-center"
@@ -24,8 +24,8 @@ import { Link, Logo } from "@shared/components";
                     </nav>
 
                     <div class="flex items-center space-x-4">
-                        <app-link link="/flow/auth/signin"> Sign In </app-link>
-                        <app-link link="/flow/auth/signup" [button]="true"> Start Free Trial </app-link>
+                        <app-button link="/flow/auth/signin" variant="ghost" [asAnchor]="true" label="Sign In" />
+                        <app-button link="/flow/auth/signup" [asAnchor]="true" label="Start Free Trial" />
                     </div>
                 </div>
             </div>
