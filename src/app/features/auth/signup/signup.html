@@ -1,137 +1,138 @@
 <main
-    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4"
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br p-4 relative overflow-hidden"
 >
+    <div class="absolute inset-0 bg-grid-pattern"></div>
     <app-card header="Sign Up" subheader="Create an account to get started">
         <form
-            [formGroup]="signupForm"
             (ngSubmit)="onSubmit()"
+            [formGroup]="signupForm"
             class="flex flex-col gap-4"
         >
             <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="firstName"
+                    helperText="Please enter your first name."
                     label="First Name"
                     placeholder="Enter your first name"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter your first name."
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="lastName"
+                    helperText="Please enter your last name."
                     label="Last Name"
                     placeholder="Enter your last name"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter your last name."
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="email"
+                    helperText="Please enter a valid email address."
                     label="Email"
                     placeholder="Enter your email"
                     type="email"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter a valid email address."
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="username"
+                    helperText="Please enter a unique username."
                     label="Username"
                     placeholder="Enter your username"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter a unique username."
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="phoneNumber"
+                    helperText="Please enter a valid phone number."
                     label="Phone Number"
                     placeholder="Enter your phone number"
                     type="tel"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter a valid phone number."
                 />
                 <app-select
-                    formControlName="country"
                     [options]="countries"
                     [placeholder]="'Select your country'"
                     [required]="true"
-                    label="Country"
                     [withHelperText]="true"
-                    helperText="Please select your country."
                     customClass="w-full flex flex-col"
+                    formControlName="country"
+                    helperText="Please select your country."
+                    label="Country"
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="companyName"
+                    helperText="Please enter the name of your company."
                     label="Company Name"
                     placeholder="Enter your company name"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter the name of your company."
                 />
                 <app-select
-                    formControlName="organizationType"
-                    label="Organization Type"
                     [options]="organizations"
                     [placeholder]="'Select your organization type'"
                     [required]="true"
                     [withHelperText]="true"
                     customClass="w-full flex flex-col"
+                    formControlName="organizationType"
                     helperText="Please select your organization type."
+                    label="Organization Type"
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="registrationNumber"
+                    helperText="Please enter your registration number."
                     label="Registration Number"
                     placeholder="Enter your registration number"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter your registration number."
                 />
                 <app-input
+                    [required]="true"
+                    [withHelperText]="true"
+                    customClass="w-full flex flex-col"
                     formControlName="taxNumber"
+                    helperText="Please enter your tax number."
                     label="Tax Number"
                     placeholder="Enter your tax number"
-                    [required]="true"
-                    customClass="w-full flex flex-col"
-                    [withHelperText]="true"
-                    helperText="Please enter your tax number."
                 />
                 <app-input
-                    formControlName="password"
-                    label="Password"
-                    type="password"
-                    placeholder="**********"
-                    [required]="true"
                     [feedback]="true"
-                    customClass="w-full flex flex-col"
+                    [required]="true"
                     [withHelperText]="true"
+                    customClass="w-full flex flex-col"
+                    formControlName="password"
                     helperText="Your password must be at least 8 characters long."
+                    label="Password"
+                    placeholder="**********"
+                    type="password"
                 />
                 <app-input
-                    formControlName="confirmPassword"
-                    label="Confirm Password"
-                    type="password"
-                    placeholder="**********"
                     [required]="true"
-                    customClass="w-full flex flex-col"
                     [withHelperText]="true"
+                    customClass="w-full flex flex-col"
+                    formControlName="confirmPassword"
                     helperText="Please confirm your password."
+                    label="Confirm Password"
+                    placeholder="**********"
+                    type="password"
                 />
             </section>
             <app-button
-                label="Create Account"
-                type="submit"
                 [disabled]="signupForm.invalid"
                 customClass="w-full mt-4"
+                label="Create Account"
+                type="submit"
             />
         </form>
-        <app-link link="/flow/auth/signin" customClass="mt-4">
+        <app-link customClass="mt-4" link="/flow/auth/signin">
             Already have an account? Sign In
         </app-link>
     </app-card>

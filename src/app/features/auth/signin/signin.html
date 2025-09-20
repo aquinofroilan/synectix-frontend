@@ -1,53 +1,51 @@
-<main ngClass="flex items-center justify-center h-full p-4 min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+<main ngClass="flex items-center justify-center h-full p-4 min-h-screen w-full relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern"></div>
     <app-card
         header="Sign In"
         subheader="Please enter your credentials to continue"
-        customStyles="w-full max-w-lg flex flex-col gap-4"
     >
         <form
-            [formGroup]="signInForm"
-            class="flex flex-col gap-3"
             (ngSubmit)="onSubmit()"
+            [formGroup]="signInForm"
+            card-content
+            class="flex flex-col gap-3"
         >
             <app-input
-                autocomplete="email"
-                id="email"
-                formControlName="email"
-                label="Email"
-                [withHelperText]="true"
                 [size]="'small'"
+                [withHelperText]="true"
+                autocomplete="email"
                 customClass="w-full flex flex-col gap-1"
-                placeholder="someone@example.com"
+                formControlName="email"
                 helperText="Enter your email address"
+                id="email"
+                label="Email"
+                placeholder="someone@example.com"
             />
             <app-input
-                autocomplete="current-password"
-                id="password"
-                name="password"
-                formControlName="password"
-                type="password"
-                label="Password"
                 [feedback]="false"
                 [size]="'small'"
-                placeholder="*********"
                 [withHelperText]="true"
+                autocomplete="current-password"
                 customClass="w-full flex flex-col gap-1"
+                formControlName="password"
                 helperText="Enter your password"
+                id="password"
+                label="Password"
+                name="password"
+                placeholder="*********"
+                type="password"
             />
             <app-button
-                label="Sign In"
-                type="submit"
                 [disabled]="signInForm.invalid"
                 customClass="w-full"
-            />
+                label="Sign In"
+                type="submit"
+            >Login
+            </app-button>
         </form>
-        <section class="flex flex-row justify-between items-center mt-2">
-            <app-link link="/flow/auth/signup" class="mt-4">
-                Don't have an account?
-            </app-link>
-            <app-link link="/flow/auth/forgot-password" class="mt-2">
-                Forgot Password?
-            </app-link>
+        <section card-footer class="flex flex-row justify-between items-center mt-2">
+            <app-link class="mt-4" href="/flow/auth/signup" label="Don't have an account?"/>
+            <app-link class="mt-2" href="/flow/auth/forgot-password" label="Forgot Password?"/>
         </section>
     </app-card>
 </main>
