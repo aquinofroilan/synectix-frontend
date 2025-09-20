@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { Button } from "@shared/components/button/button";
 import { Card } from "@shared/components/card/card";
@@ -9,7 +9,7 @@ import { Link } from "@shared/components";
 
 @Component({
     selector: "app-homepage",
-    imports: [CommonModule, RouterLink, Button, Card, Header, Footer, Link],
+    imports: [CommonModule, RouterLink, Button, Card, Header, Footer, Link, NgOptimizedImage],
     templateUrl: "./homepage.html",
     styleUrl: "./homepage.css",
 })
