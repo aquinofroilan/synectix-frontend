@@ -1,6 +1,6 @@
-<main ngClass="flex items-center justify-center h-full p-4 min-h-screen w-full relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern"></div>
+<main ngClass="flex items-center justify-center h-full p-4 min-h-screen w-full relative overflow-hidden z-50">
     <app-card
+        class=" w-11/12 max-w-md"
         header="Sign In"
         subheader="Please enter your credentials to continue"
     >
@@ -35,17 +35,21 @@
                 placeholder="*********"
                 type="password"
             />
+            <app-checkbox
+                formControlName="rememberMe"
+                label="Remember Me"
+            />
             <app-button
                 [disabled]="signInForm.invalid"
+                [iconOnly]="true"
                 customClass="w-full"
                 label="Sign In"
                 type="submit"
-            >Login
-            </app-button>
+            />
         </form>
-        <section card-footer class="flex flex-row justify-between items-center mt-2">
+        <section card-footer class="flex flex-col justify-between items-center w-full">
+            <app-link class="mt-2" href="/flow/auth/forgot-password" label="Forgot Password?" variant="outline"/>
             <app-link class="mt-4" href="/flow/auth/signup" label="Don't have an account?"/>
-            <app-link class="mt-2" href="/flow/auth/forgot-password" label="Forgot Password?"/>
         </section>
     </app-card>
 </main>

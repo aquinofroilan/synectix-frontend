@@ -8,8 +8,8 @@ import type { Observable } from "rxjs";
 export class AuthenticationService {
     httpService = inject(HttpService);
 
-    signIn(email: string, password: string) {
-        return this.httpService.post("/auth/signin", { user: email, password });
+    signIn(email: string, password: string, rememberMe: boolean) {
+        return this.httpService.post("/auth/signin", { user: email, password, rememberMe });
     }
 
     signUp(

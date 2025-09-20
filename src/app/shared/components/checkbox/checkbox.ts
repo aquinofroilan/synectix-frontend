@@ -1,11 +1,11 @@
-import { Component, forwardRef } from "@angular/core";
-import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { BaseFormField } from "@shared/base/form-field/base-form-field";
-import { CheckboxModule } from "primeng/checkbox";
+import {Component, forwardRef} from "@angular/core";
+import {FormsModule, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {BaseFormField} from "@shared/base/form-field/base-form-field";
+import {HlmCheckbox} from "@spartan-ng/helm/checkbox";
 
 @Component({
     selector: "app-checkbox",
-    imports: [CheckboxModule, FormsModule],
+    imports: [FormsModule, HlmCheckbox],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -15,15 +15,7 @@ import { CheckboxModule } from "primeng/checkbox";
     ],
     template: `
         <div class="flex items-center">
-            <p-checkbox
-                [required]="required"
-                [inputId]="inputId"
-                [name]="name"
-                [disabled]="_disabled"
-                [size]="size"
-                [invalid]=""
-                [variant]="variant"
-            />
+            <hlm-checkbox [required]="required" [id]="inputId" [name]="name" [disabled]="_disabled" />
             <label [for]="inputId" class="ml-2"> {{ label }} </label>
         </div>
     `,

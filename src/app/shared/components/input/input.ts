@@ -1,39 +1,22 @@
 import { Component, forwardRef } from "@angular/core";
-import { InputTextModule } from "primeng/inputtext";
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { PasswordModule } from "primeng/password";
-import { Textarea } from "primeng/textarea";
 import { BaseFormField } from "@shared/base/form-field/base-form-field";
 import { CommonModule } from "@angular/common";
+import { HlmInput } from "@spartan-ng/helm/input";
 
 @Component({
     selector: "app-input",
-    imports: [InputTextModule, FormsModule, PasswordModule, Textarea, CommonModule],
+    imports: [FormsModule, HlmInput, CommonModule],
     template: `
         <section [class]="customClass">
             <label class="text-sm" [htmlFor]="inputId">{{ label }}</label>
             <input
-                *ngIf="type !== 'password'"
+                hlmInput
                 [type]="type"
-                pInputText
                 [autocomplete]="autocomplete"
                 [placeholder]="placeholder"
-                [pSize]="size"
                 (input)="onInputChange($event)"
             />
-            <p-password
-                *ngIf="type === 'password'"
-                [toggleMask]="toggleMask"
-                [feedback]="feedback"
-                [size]="size"
-                [placeholder]="placeholder"
-                [autocomplete]="autocomplete"
-                [inputId]="inputId"
-                id="{{ inputId }}"
-                (input)="onInputChange($event)"
-            />
-            <textarea rows="5" cols="30" pTextarea *ngIf="type === 'textarea'"></textarea>
-            <small>{{ helperText }}</small>
         </section>
     `,
     providers: [
