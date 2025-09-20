@@ -1,18 +1,49 @@
 import { Component, Input } from "@angular/core";
-import { CardModule } from "primeng/card";
+import {
+    HlmCardContent,
+    HlmCardDescription,
+    HlmCard,
+    HlmCardFooter,
+    HlmCardHeader,
+    HlmCardTitle,
+    HlmCardAction,
+} from "@spartan-ng/helm/card";
 
 @Component({
     selector: "app-card",
-    imports: [CardModule],
+    imports: [HlmCard, HlmCardHeader, HlmCardTitle, HlmCardDescription, HlmCardContent, HlmCardFooter, HlmCardAction],
     template: `
-        <p-card [header]="header" [subheader]="subheader" [styleClass]="customStyles">
-            <ng-content [ngClass]="contentClass"></ng-content>
-        </p-card>
+        <section hlmCard>
+            @if (header || subheader || content || footer) {
+            <div hlmCardHeader>
+                @if (header || subheader) { <h3 hlmCardTitle>{{ header }}</h3> }
+                @if (subheader) { <p hlmCardDescription>{{ subheader }}</p> }
+                <ng-content select="[card-header]"></ng-content>
+                <div hlmCardAction>
+                    <ng-content select="[card-action]"></ng-content>
+                </div>
+            </div>
+            }
+
+            <div hlmCardContent>
+                <ng-content select="[card-content]"></ng-content>
+                @if (content) { <p>{{ content }}</p>}
+            </div>
+
+            <div hlmCardFooter>
+                <ng-content select="[card-footer]"></ng-content>
+                @if (footer) { <p>{{ footer }}</p>}
+            </div>
+        </section>
     `,
 })
 export class Card {
-    @Input() header!: string;
-    @Input() subheader!: string;
-    @Input() customStyles: string = "";
-    @Input() contentClass: string = "";
+    @Input() header?: string;
+    @Input() subheader?: string;
+    @Input() content?: string;
+    @Input() footer?: string;
+
+    hasHeaderContent = false;
+    hasContent = false;
+    hasFooter = false;
 }
