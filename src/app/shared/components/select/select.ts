@@ -1,9 +1,9 @@
-import {Component, forwardRef, Input} from "@angular/core";
-import {type ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
-import {BaseFormField} from "@shared/base/form-field/base-form-field";
-import {SelectModule} from "primeng/select";
-import {BrnSelectImports} from "@spartan-ng/brain/select";
-import {HlmSelectImports} from "@spartan-ng/helm/select";
+import { Component, forwardRef, Input } from "@angular/core";
+import { type ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
+import { BaseFormField } from "@shared/base/form-field/base-form-field";
+import { SelectModule } from "primeng/select";
+import { BrnSelectImports } from "@spartan-ng/brain/select";
+import { HlmSelectImports } from "@spartan-ng/helm/select";
 
 @Component({
     selector: "app-select",
