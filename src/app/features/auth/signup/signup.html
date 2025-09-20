@@ -1,11 +1,11 @@
 <main
-    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br p-4 relative overflow-hidden"
+    class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br p-4"
 >
-    <div class="absolute inset-0 bg-grid-pattern"></div>
     <app-card header="Sign Up" subheader="Create an account to get started">
         <form
             (ngSubmit)="onSubmit()"
             [formGroup]="signupForm"
+            card-content
             class="flex flex-col gap-4"
         >
             <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -132,8 +132,8 @@
                 type="submit"
             />
         </form>
-        <app-link customClass="mt-4" link="/flow/auth/signin">
-            Already have an account? Sign In
-        </app-link>
+        <section card-footer class="flex flex-col justify-between items-center w-full">
+            <app-link href="/flow/auth/signin" label="Already have an account?" variant="outline"/>
+        </section>
     </app-card>
 </main>

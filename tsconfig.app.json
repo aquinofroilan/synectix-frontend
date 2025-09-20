@@ -7,6 +7,6 @@
         "composite": true,
         "types": ["node"]
     },
-    "include": ["src/**/*.ts", "libs/ui/ui-button-helm/src//*.ts", "libs/ui/ui-utils-helm/src//*.ts", "libs/ui/ui-card-helm/src//*.ts", "libs/ui/ui-checkbox-helm/src//*.ts", "libs/ui/ui-icon-helm/src//*.ts", "libs/ui/ui-input-helm/src//*.ts"],
+    "include": ["src/**/*.ts", "libs/ui/ui-button-helm/src//*.ts", "libs/ui/ui-utils-helm/src//*.ts", "libs/ui/ui-card-helm/src//*.ts", "libs/ui/ui-checkbox-helm/src//*.ts", "libs/ui/ui-icon-helm/src//*.ts", "libs/ui/ui-input-helm/src//*.ts", "libs/ui/ui-select-helm/src//*.ts"],
     "exclude": ["src/**/*.spec.ts"]
 }
