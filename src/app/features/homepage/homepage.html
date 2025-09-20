@@ -36,7 +36,6 @@
     </div>
 </section>
 
-<!-- Stats Section -->
 <section class="bg-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -51,21 +50,21 @@
 </section>
 
 <!-- Features Section -->
-<section class="bg-gray-50 py-20">
+<section class="bg-primary py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 class="text-3xl text-secondary lg:text-4xl font-bold  mb-4">
                 Everything You Need to Run Your Business
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="text-xl text-secondary max-w-3xl mx-auto">
                 Our comprehensive ERP platform brings all your business
                 processes together in one integrated solution.
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @for (feature of features; track feature) {
             <app-card
-                *ngFor="let feature of features"
                 customStyles="bg-white border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full"
             >
                 <div class="p-6">
@@ -82,6 +81,7 @@
                         label="Learn More"/>
                 </div>
             </app-card>
+            }
         </div>
     </div>
 </section>
