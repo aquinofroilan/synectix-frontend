@@ -14,7 +14,6 @@ import {
     imports: [HlmCard, HlmCardHeader, HlmCardTitle, HlmCardDescription, HlmCardContent, HlmCardFooter, HlmCardAction],
     template: `
         <section hlmCard>
-            @if (header || subheader || content || footer) {
             <div hlmCardHeader>
                 @if (header || subheader) { <h3 hlmCardTitle>{{ header }}</h3> }
                 @if (subheader) { <p hlmCardDescription>{{ subheader }}</p> }
@@ -23,7 +22,6 @@ import {
                     <ng-content select="[card-action]"></ng-content>
                 </div>
             </div>
-            }
 
             <div hlmCardContent>
                 <ng-content select="[card-content]"></ng-content>
@@ -43,7 +41,7 @@ export class Card {
     @Input() content?: string;
     @Input() footer?: string;
 
-    hasHeaderContent = false;
-    hasContent = false;
-    hasFooter = false;
+    // hasHeaderContent = false;
+    // hasContent = false;
+    // hasFooter = false;
 }

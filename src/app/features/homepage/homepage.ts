@@ -16,39 +16,33 @@ import { Link } from "@shared/components";
 export class Homepage {
     features = [
         {
-            icon: "📊",
             title: "Advanced Analytics",
             description:
                 "Get real-time insights into your business performance with customizable dashboards and detailed reports.",
             link: "/features/analytics",
         },
         {
-            icon: "💼",
             title: "Financial Management",
             description: "Complete accounting suite with automated bookkeeping, invoicing, and financial reporting.",
             link: "/features/accounting",
         },
         {
-            icon: "📦",
             title: "Inventory Control",
             description:
                 "Track stock levels, manage suppliers, and automate reorder processes across multiple locations.",
             link: "/features/inventory",
         },
         {
-            icon: "🤝",
             title: "CRM & Sales",
             description: "Manage customer relationships and streamline your sales process from lead to conversion.",
             link: "/features/sales",
         },
         {
-            icon: "🛒",
             title: "Procurement",
             description: "Optimize purchasing workflows with automated approvals and vendor management.",
             link: "/features/purchasing",
         },
         {
-            icon: "🔧",
             title: "Customizable",
             description: "Tailor the system to your business needs with flexible workflows and custom fields.",
             link: "/features/customization",
